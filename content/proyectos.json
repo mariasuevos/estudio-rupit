@@ -1,0 +1,175 @@
+{
+  "intro": "Lorem ipsum es un texto de relleno estándar utilizado en diseño gráfico, editorial y web para previsualizar maquetas (layouts) y tipografías antes de insertar el contenido definitivo. Se comenzó a utilizar en 1966, creado por diseñadores de Letraset y James Mosely, un bibliotecario en Londres, para crear las hojas de transferencia.",
+  "projects": [
+    {
+      "title": "Proyecto 1",
+      "photos": [
+        {
+          "image": "/uploads/proyectos/proyecto-1/mar-de-luna-1-5.jpg",
+          "alt": ""
+        },
+        {
+          "image": "/uploads/proyectos/proyecto-1/mar-de-luna-1-7.jpg",
+          "alt": ""
+        },
+        {
+          "image": "/uploads/proyectos/proyecto-1/mar-de-luna-1-9.jpg",
+          "alt": ""
+        },
+        {
+          "image": "/uploads/proyectos/proyecto-1/mar-de-luna-1-10.jpg",
+          "alt": ""
+        }
+      ]
+    },
+    {
+      "title": "Proyecto 2",
+      "photos": [
+        {
+          "image": "/uploads/proyectos/proyecto-2/mar-de-luna-1-14.jpg",
+          "alt": ""
+        },
+        {
+          "image": "/uploads/proyectos/proyecto-2/mar-de-luna-1-23.jpg",
+          "alt": ""
+        },
+        {
+          "image": "/uploads/proyectos/proyecto-2/mar-de-luna-1-25.jpg",
+          "alt": ""
+        },
+        {
+          "image": "/uploads/proyectos/proyecto-2/mar-de-luna-1-26.jpg",
+          "alt": ""
+        },
+        {
+          "image": "/uploads/proyectos/proyecto-2/mar-de-luna-1-29.jpg",
+          "alt": ""
+        },
+        {
+          "image": "/uploads/proyectos/proyecto-2/mar-de-luna-1-33.jpg",
+          "alt": ""
+        },
+        {
+          "image": "/uploads/proyectos/proyecto-2/mar-de-luna-1-36.jpg",
+          "alt": ""
+        }
+      ]
+    },
+    {
+      "title": "Proyecto 3",
+      "photos": [
+        {
+          "image": "/uploads/proyectos/proyecto-3/mar-de-luna-3-18.jpg",
+          "alt": ""
+        },
+        {
+          "image": "/uploads/proyectos/proyecto-3/mar-de-luna-3-22.jpg",
+          "alt": ""
+        },
+        {
+          "image": "/uploads/proyectos/proyecto-3/mar-de-luna-3-23.jpg",
+          "alt": ""
+        },
+        {
+          "image": "/uploads/proyectos/proyecto-3/mar-de-luna-3-24.jpg",
+          "alt": ""
+        },
+        {
+          "image": "/uploads/proyectos/proyecto-3/mar-de-luna-3-29.jpg",
+          "alt": ""
+        },
+        {
+          "image": "/uploads/proyectos/proyecto-3/mar-de-luna-3-31.jpg",
+          "alt": ""
+        },
+        {
+          "image": "/uploads/proyectos/proyecto-3/mar-de-luna-3-35.jpg",
+          "alt": ""
+        }
+      ]
+    },
+    {
+      "title": "Proyecto 4",
+      "photos": [
+        {
+          "image": "/uploads/proyectos/proyecto-4/mar-de-luna-3-5.jpg",
+          "alt": ""
+        },
+        {
+          "image": "/uploads/proyectos/proyecto-4/mar-de-luna-3-6.jpg",
+          "alt": ""
+        },
+        {
+          "image": "/uploads/proyectos/proyecto-4/mar-de-luna-3-7.jpg",
+          "alt": ""
+        },
+        {
+          "image": "/uploads/proyectos/proyecto-4/mar-de-luna-3-9.jpg",
+          "alt": ""
+        },
+        {
+          "image": "/uploads/proyectos/proyecto-4/mar-de-luna-3-11.jpg",
+          "alt": ""
+        },
+        {
+          "image": "/uploads/proyectos/proyecto-4/mar-de-luna-3-16.jpg",
+          "alt": ""
+        },
+        {
+          "image": "/uploads/proyectos/proyecto-4/mar-de-luna-3-17.jpg",
+          "alt": ""
+        }
+      ]
+    },
+    {
+      "title": "Proyecto 5",
+      "photos": [
+        {
+          "image": "/uploads/proyectos/proyecto-5/mar-de-luna-2-1.jpg",
+          "alt": ""
+        },
+        {
+          "image": "/uploads/proyectos/proyecto-5/mar-de-luna-2-2.jpg",
+          "alt": ""
+        },
+        {
+          "image": "/uploads/proyectos/proyecto-5/mar-de-luna-2-3.jpg",
+          "alt": ""
+        },
+        {
+          "image": "/uploads/proyectos/proyecto-5/mar-de-luna-2-5.jpg",
+          "alt": ""
+        },
+        {
+          "image": "/uploads/proyectos/proyecto-5/mar-de-luna-2-6.jpg",
+          "alt": ""
+        }
+      ]
+    },
+    {
+      "title": "Proyecto 6",
+      "photos": [
+        {
+          "image": "/uploads/proyectos/proyecto-6/mar-de-luna-2-9.jpg",
+          "alt": ""
+        },
+        {
+          "image": "/uploads/proyectos/proyecto-6/mar-de-luna-2-10.jpg",
+          "alt": ""
+        },
+        {
+          "image": "/uploads/proyectos/proyecto-6/mar-de-luna-2-18.jpg",
+          "alt": ""
+        },
+        {
+          "image": "/uploads/proyectos/proyecto-6/mar-de-luna-2-19.jpg",
+          "alt": ""
+        },
+        {
+          "image": "/uploads/proyectos/proyecto-6/mar-de-luna-2-21.jpg",
+          "alt": ""
+        }
+      ]
+    }
+  ]
+}

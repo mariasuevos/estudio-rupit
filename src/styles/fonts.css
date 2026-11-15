@@ -1,0 +1,63 @@
+/*
+ * Brand fonts (self-hosted).
+ *
+ * Josefin Sans — main font: nav, names/titles, and (as "plan b") italic + light text.
+ * Agenda One  — preferred font for italic subtitles and light body text.
+ *   The files are not in the repo yet. When you have them (with a web licence):
+ *   1. put the .woff2 files in src/assets/fonts/agenda-one/
+ *   2. uncomment the @font-face blocks below
+ *   3. in tokens.css, set --font-body and --font-accent to var(--font-agenda)
+ */
+
+@font-face {
+  font-family: "Josefin Sans";
+  src: url("../assets/fonts/josefin-sans/JosefinSans-Light.ttf") format("truetype");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Josefin Sans";
+  src: url("../assets/fonts/josefin-sans/JosefinSans-LightItalic.ttf") format("truetype");
+  font-weight: 300;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Josefin Sans";
+  src: url("../assets/fonts/josefin-sans/JosefinSans-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Josefin Sans";
+  src: url("../assets/fonts/josefin-sans/JosefinSans-Italic.ttf") format("truetype");
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Josefin Sans";
+  src: url("../assets/fonts/josefin-sans/JosefinSans-SemiBold.ttf") format("truetype");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+/*
+@font-face {
+  font-family: "Agenda One";
+  src: url("../assets/fonts/agenda-one/AgendaOne-Light.woff2") format("woff2");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Agenda One";
+  src: url("../assets/fonts/agenda-one/AgendaOne-Italic.woff2") format("woff2");
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+*/

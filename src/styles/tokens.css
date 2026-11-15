@@ -1,0 +1,157 @@
+/*
+ * Design tokens — the single source of truth for the site's look (estudio rupit).
+ * Change values here; never hard-code colors, fonts or spacing in components.
+ */
+:root {
+  /* ---- Brand colors ---- */
+  --brand-plum: #4d4045;   /* morado: text, logo */
+  --brand-beige: #e8debc;  /* beige: accents, logo */
+  --brand-white: #ffffff;
+
+  /* ---- Color roles (use these in components) ---- */
+  --color-bg: var(--brand-white);
+  --color-text: var(--brand-plum);
+  --color-accent: var(--brand-beige);
+  --color-surface: color-mix(in srgb, var(--brand-beige) 25%, white);
+  --color-inverse-bg: var(--brand-plum);
+  --color-inverse-text: var(--brand-white);
+  --color-link: var(--brand-plum);
+  --color-focus: var(--brand-plum);
+
+  /* ---- Typography ---- */
+  --font-josefin: "Josefin Sans", system-ui, sans-serif;
+  --font-agenda: "Agenda One", "Josefin Sans", system-ui, sans-serif;
+
+  /* Roles from the style guide (Agenda One where specified, Josefin Sans as plan b) */
+  --font-nav: var(--font-josefin);     /* Josefin Sans regular */
+  --font-heading: var(--font-josefin); /* Josefin Sans regular, uppercase, tracked */
+  --font-accent: var(--font-josefin);  /* Agenda One italic  → plan b Josefin Sans italic */
+  --font-body: var(--font-josefin);    /* Agenda One light   → plan b Josefin Sans light */
+
+  --weight-light: 300;
+  --weight-regular: 400;
+  --weight-semibold: 600;
+
+  /* Figma/Illustrator tracking 60 = 0.06em */
+  --tracking-heading: 0.06em;
+  --tracking-nav: 0.02em;
+
+  /* Fluid type scale (360px → 1280px viewports) */
+  --text-base: clamp(1rem, 0.96rem + 0.2vw, 1.125rem);
+  --text-lg: clamp(1.125rem, 1.07rem + 0.25vw, 1.25rem);
+  --text-lead: clamp(0.9375rem, 0.35rem + 0.85vw, 1.25rem); /* italic intro/story text */
+  --text-name: clamp(0.9375rem, 0.35rem + 0.85vw, 1.25rem); /* uppercase names (MAR DE LUNA, HOME) */
+
+  --leading-tight: 1.2;
+  --leading-normal: 1.45;
+
+  /* ---- Spacing (4px base) ---- */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.5rem;
+  --space-6: 2rem;
+  --space-7: 3rem;
+  --space-8: 4rem;
+  --space-9: 6rem;
+
+  /* ---- Layout ---- */
+  --text-measure: 34rem; /* max width of a text column */
+  --page-left: 4.7vw;                       /* left edge of the menu, intro text and footer */
+  --page-top: clamp(1.75rem, 5vh, 4rem);    /* top of the menu */
+  --content-left: 29.3vw;                   /* content column on inner pages (photo, names, text) */
+  --content-right: 4.2vw;                   /* right margin of photos, text and footer block */
+
+  /* ---- Sobre rupit ---- */
+  --about-gallery-bottom: 7.3svh;           /* white space under the photo */
+  --about-intro-top: 37.7%;                 /* italic intro text: vertical position */
+  --about-intro-width: 34.7vw;              /* italic intro text (overlaps the photo) */
+  --about-text-gap: clamp(1.5rem, 3.5vw, 3.5rem); /* names → text */
+
+  /* ---- Italic intro text, top-right (servicios, proyectos) ---- */
+  --intro-width: 27.6vw;
+  --intro-right: 2.5vw;
+
+  /* ---- Servicios ---- */
+  --services-grid-top: clamp(2rem, 3.5vw, 4rem); /* intro/menu → columns */
+  --services-sub-left: 28vw;                /* Papelería sub-options column */
+  --services-photos-left: 46.7vw;           /* photo list column (to the right edge) */
+  --services-category-gap: clamp(0.75rem, 1.6vw, 1.75rem);
+  --services-sub-gap: clamp(0.75rem, 1.3vw, 1.5rem);
+  --photo-caption-gap: clamp(1rem, 1.9vw, 1.75rem);  /* photo → caption */
+  --photo-list-gap: clamp(1.5rem, 2.3vw, 2.5rem);    /* caption → next photo */
+
+  /* ---- Proyectos (carousels) ---- */
+  --carousel-height: clamp(13rem, 31vw, 34rem);   /* photo height */
+  --carousel-gap: clamp(0.75rem, 2.5vw, 2.5rem);  /* space between photos */
+  --carousel-row-gap: clamp(3rem, 9vw, 9rem);     /* space between projects */
+  --carousel-speed: 40;                           /* pixels per second */
+  /* Full-screen photo */
+  --lightbox-pad-y: clamp(0.5rem, 1.4vh, 1.25rem);  /* space above/below the photo */
+  --lightbox-pad-x: clamp(3.5rem, 6vw, 6rem);       /* space at the sides (arrows) */
+  --lightbox-button-size: clamp(2.25rem, 2.8vw, 2.75rem);
+  --lightbox-button-inset: clamp(0.75rem, 1.9vw, 1.75rem);
+  --lightbox-button-bg: color-mix(in srgb, var(--brand-plum) 30%, white);
+  --lightbox-button-bg-hover: color-mix(in srgb, var(--brand-plum) 50%, white);
+
+  /* ---- Contacto ---- */
+  --contact-form-top: clamp(3rem, 12.5vw, 11rem);  /* page top → first field */
+  --contact-form-left: 52.1vw;                     /* form occupies the right half */
+  --contact-field-gap: clamp(1.25rem, 2vw, 2rem);  /* line → next label */
+  --contact-label-gap: clamp(0.5rem, 1vw, 0.9rem); /* label → input → line */
+  --contact-input-indent: clamp(0.5rem, 1.1vw, 1rem);
+  --contact-line: color-mix(in srgb, var(--brand-plum) 14%, var(--brand-beige));
+  --contact-submit-top: clamp(1.5rem, 3vw, 3rem);
+  --contact-submit-height: clamp(2.75rem, 4.7vw, 4.25rem);
+  --contact-text-top: clamp(2rem, 3vw, 3rem);      /* form → text on the left */
+  --contact-text-width: 40vw;
+  --text-form: clamp(0.875rem, 0.4rem + 0.6vw, 1.125rem);
+
+  /* ---- Footer ---- */
+  --footer-top: 30svh;             /* space between the page and the footer */
+  --footer-wordmark-height: clamp(9rem, 15vw, 20rem); /* vertical "estudio rupit" */
+  --footer-gap-wordmark: 9svh;     /* wordmark → contact */
+  --footer-gap-legal: 4.6svh;      /* contact → legal links */
+  --footer-bottom: 7.2svh;         /* space under the legal links */
+  --footer-block-size: max(7rem, 19.4vw); /* beige "HOME" square */
+  --footer-block-bottom: 5.8svh;
+  --text-contact: clamp(1rem, 0.45rem + 1.15vw, 1.625rem);
+  --text-legal: clamp(0.625rem, 0.55rem + 0.2vw, 0.8125rem);
+
+  /* ---- Logo menu ---- */
+  --nav-vertical-width: clamp(0.75rem, 1.1vw, 1.25rem);              /* inner pages: dot size */
+  --nav-vertical-label-size: clamp(0.9375rem, 0.4rem + 0.75vw, 1.25rem); /* inner pages: section name */
+  /* Home hero logo: wordmark and dots are sized separately */
+  --hero-wordmark-width: max(8.5rem, 20vw); /* "estudio rupit" */
+  --hero-symbol-width: max(11rem, 25.6vw);  /* moon + 3 dots */
+  --hero-logo-gap: 6.7vw;                     /* space between them */
+  --hero-logo-left: 12.8vw;
+  --hero-logo-top: 53%;                     /* vertical position: 50% = centred, higher % = lower */
+  --hero-label-size: clamp(0.8125rem, 0.6rem + 0.45vw, 1rem); /* section name under a mark */
+  --nav-fade-opacity: 0.5;      /* other marks, inner pages */
+  --nav-fade-opacity-hero: 0;   /* other marks on hover, home (they disappear) */
+
+  /* ---- Motion ---- */
+  --duration-fast: 120ms;
+  --duration-base: 220ms;
+  --duration-gallery: 450ms;
+  --ease-out: cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --duration-fast: 0ms;
+    --duration-base: 0ms;
+    --duration-gallery: 0ms;
+  }
+}
+
+/* Phones: tighter page edges; content starts just right of the vertical menu */
+@media (max-width: 47.99rem) {
+  :root {
+    --page-left: 1rem;
+    --content-left: calc(var(--page-left) + var(--nav-vertical-width) + 1.25rem);
+    --content-right: 1rem;
+  }
+}

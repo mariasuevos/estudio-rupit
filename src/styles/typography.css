@@ -1,0 +1,77 @@
+/*
+ * Text styles from the style guide. Use these classes instead of styling text ad hoc.
+ *   .t-name     JIMENA SIERRA        Josefin Sans regular, uppercase, tracking 60
+ *   .t-accent   co-creadora de rupit Agenda One italic (plan b Josefin Sans italic)
+ *   .t-body     paragraphs           Agenda One light (plan b Josefin Sans light)
+ *   .t-nav      contacto             Josefin Sans regular, lowercase
+ *   .t-lead     intro / story text   Agenda One italic (plan b Josefin Sans light italic), larger
+ *   .t-contact  footer contact       same italic, uppercase
+ *   .t-legal    footer legal links   Josefin Sans regular, small, very wide tracking
+ *   .t-caption  photo captions       like .t-legal, uppercase
+ */
+.t-name {
+  font-family: var(--font-heading);
+  font-weight: var(--weight-regular);
+  font-size: var(--text-name);
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-heading);
+  line-height: var(--leading-tight);
+}
+
+.t-accent {
+  font-family: var(--font-accent);
+  font-style: italic;
+  font-weight: var(--weight-regular);
+  font-size: var(--text-lg);
+}
+
+.t-body {
+  font-family: var(--font-body);
+  font-weight: var(--weight-light);
+  font-size: var(--text-base);
+  line-height: var(--leading-normal);
+}
+
+.t-nav {
+  font-family: var(--font-nav);
+  font-weight: var(--weight-regular);
+  font-size: var(--text-base);
+  letter-spacing: var(--tracking-nav);
+  text-transform: lowercase;
+}
+
+.t-lead {
+  font-family: var(--font-accent);
+  font-style: italic;
+  font-weight: var(--weight-light);
+  font-size: var(--text-lead);
+  line-height: 1.12;
+}
+.t-lead p + p { margin-top: 0.8em; }
+
+.t-contact {
+  font-family: var(--font-accent);
+  font-style: italic;
+  font-weight: var(--weight-light);
+  font-size: var(--text-contact);
+  line-height: 1.08;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+
+.t-legal {
+  font-family: var(--font-nav);
+  font-weight: var(--weight-regular);
+  font-size: var(--text-legal);
+  letter-spacing: 0.3em;
+  line-height: 1.8;
+}
+
+.t-caption {
+  font-family: var(--font-nav);
+  font-weight: var(--weight-regular);
+  font-size: var(--text-legal);
+  letter-spacing: 0.3em;
+  line-height: 1.6;
+  text-transform: uppercase;
+}

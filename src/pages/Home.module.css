@@ -1,0 +1,27 @@
+/*
+ * The photo always fills the screen exactly (no scroll).
+ * It is anchored to the top, so any excess is cut from the bottom
+ * (and equally from both sides on narrow/portrait screens).
+ */
+.hero {
+  position: relative;
+  height: 100svh;
+  min-height: 28rem;
+  overflow: hidden;
+  background: var(--color-inverse-bg);
+}
+.image {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+}
+
+.logo {
+  position: absolute;
+  left: var(--hero-logo-left);
+  top: var(--hero-logo-top);
+  translate: 0 -50%;
+}

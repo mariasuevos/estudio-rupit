@@ -1,0 +1,13 @@
+.page { padding-top: var(--page-top); }
+
+.projects {
+  display: flex;
+  flex-direction: column;
+  gap: var(--carousel-row-gap);
+  margin-top: var(--services-grid-top);
+}
+
+.caption {
+  margin-top: var(--photo-caption-gap);
+  padding-left: var(--page-left);
+}

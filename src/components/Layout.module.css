@@ -1,0 +1,19 @@
+/* Vertical logo menu, top-left; it scrolls away with the page */
+.menu {
+  position: absolute;
+  top: var(--page-top);
+  left: var(--page-left);
+  z-index: 10;
+}
+
+/* Short pages: keep the footer below the menu (menu height = dot size × 3518/262) */
+.main {
+  min-height: calc(var(--page-top) + var(--nav-vertical-width) * 13.43 + var(--space-8));
+}
+
+/* Beige page (contacto): beige background everywhere; the plum menu marks stay as they are */
+.beige {
+  --color-bg: var(--color-accent);
+  background: var(--color-bg);
+  min-height: 100svh;
+}

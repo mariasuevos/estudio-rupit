@@ -1,0 +1,114 @@
+/* Figma "contacto": form in the right half, uppercase italic text below on the left. Beige page (see Layout). */
+.page { padding-top: var(--page-top); }
+
+.form {
+  margin: var(--contact-form-top) var(--content-right) 0 var(--contact-form-left);
+  display: flex;
+  flex-direction: column;
+}
+
+.field {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: var(--contact-label-gap);
+  padding-top: var(--contact-field-gap);
+}
+.field:first-child { padding-top: 0; }
+
+.hint {
+  text-transform: none;
+  letter-spacing: 0.02em;
+}
+
+.input {
+  width: 100%;
+  padding: 0 0 var(--contact-label-gap) var(--contact-input-indent);
+  border: 0;
+  border-bottom: 1px solid var(--contact-line);
+  border-radius: 0;
+  background: transparent;
+  color: var(--color-text);
+  font-family: var(--font-accent);
+  font-style: italic;
+  font-weight: var(--weight-regular);
+  font-size: var(--text-form);
+  line-height: 1.4;
+  resize: vertical;
+}
+.input::placeholder { color: var(--color-text); opacity: 1; }
+.input:focus { outline: none; border-bottom-color: var(--color-text); }
+.input:focus::placeholder { opacity: 0.4; }
+
+/* Character count ("8/120"): small and discreet, in the gap under the line so it never moves the layout */
+.counter {
+  position: absolute;
+  right: 0;
+  top: calc(100% + 0.35em);
+  font-family: var(--font-nav);
+  font-size: var(--text-legal);
+  letter-spacing: 0.08em;
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+  pointer-events: none;
+  opacity: 0.5;
+  transition: opacity var(--duration-base) var(--ease-out);
+}
+.field:focus-within .counter { opacity: 0.75; }
+.field .counter[data-full] { opacity: 1; }
+
+.honeypot {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+}
+
+/*
+ * reCAPTCHA is a Google iframe (its inside can't be restyled). To blend it into the beige page:
+ * - multiply: its white box takes the page colour
+ * - grayscale: the blue/grey Google logo becomes neutral
+ * - the 1px grey frame is clipped off (the widget is 304 × 78; we show 296 × 72 of it)
+ */
+.captcha {
+  margin-top: var(--contact-submit-top);
+  width: 296px;
+  height: 72px;
+  overflow: hidden;
+  mix-blend-mode: multiply;
+}
+.captcha :global(iframe) {
+  display: block;
+  margin: -3px 0 0 -3px;
+  filter: grayscale(1) brightness(1.03); /* its #f9f9f9 box → white → page colour */
+}
+.captcha + .submit { margin-top: var(--space-5); }
+
+.submit {
+  margin-top: var(--contact-submit-top);
+  height: var(--contact-submit-height);
+  background: var(--color-text);
+  color: var(--color-inverse-text);
+  text-transform: none;
+  transition: opacity var(--duration-base) var(--ease-out);
+}
+.submit:hover { opacity: 0.88; }
+.submit:disabled { opacity: 0.6; cursor: progress; }
+
+.status {
+  min-height: 1.5em;
+  margin-top: var(--space-4);
+}
+
+.text {
+  margin: var(--contact-text-top) 0 0 var(--page-left);
+  width: var(--contact-text-width);
+}
+.text p + p { margin-top: 1.05em; }
+
+/* ---- Phones ---- */
+@media (max-width: 47.99rem) {
+  .form { margin: calc(var(--nav-vertical-width) * 13.43 + var(--space-5)) var(--content-right) 0 var(--content-left); }
+  .text { margin-left: var(--content-left); margin-right: var(--content-right); width: auto; }
+}

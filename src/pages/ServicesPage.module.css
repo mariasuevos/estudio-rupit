@@ -1,0 +1,49 @@
+/*
+ * Figma "servicios": italic intro top-right; below, three columns:
+ * categories | sub-options (only Papelería) | photo list flush with the right edge.
+ */
+.page { padding-top: var(--page-top); }
+
+.grid {
+  display: grid;
+  grid-template-columns:
+    calc(var(--services-sub-left) - var(--page-left))
+    calc(var(--services-photos-left) - var(--services-sub-left))
+    minmax(0, 1fr);
+  align-items: start;
+  margin-top: var(--services-grid-top);
+  padding-left: var(--page-left);
+}
+
+.categories ul,
+.subcategories ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+}
+.categories ul { gap: var(--services-category-gap); }
+.subcategories ul { gap: var(--services-sub-gap); }
+
+.categories a,
+.subcategories a {
+  color: var(--color-text);
+  text-decoration: none;
+}
+.categories a:hover,
+.subcategories a:hover { text-decoration: underline; text-decoration-thickness: 1px; }
+
+/* The selected category and sub-option are bold */
+.categories a[aria-current],
+.subLink[aria-current="page"] { font-weight: var(--weight-semibold); }
+
+/* ---- Phones: one column ---- */
+@media (max-width: 47.99rem) {
+  .grid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: var(--space-6);
+    padding: 0 var(--content-right) 0 var(--content-left);
+  }
+  .subcategories:empty { display: none; }
+}

@@ -1,0 +1,43 @@
+.carousel {
+  overflow: hidden;
+  width: 100%;
+}
+
+.track {
+  display: flex;
+  width: max-content;
+}
+.running {
+  animation: drift var(--duration) linear infinite;
+  animation-delay: var(--delay);
+}
+@keyframes drift {
+  to { transform: translateX(calc(-1 * var(--set-width))); }
+}
+
+/* Each set ends with the same gap as between photos, so the loop has no seam */
+.set {
+  display: flex;
+  gap: var(--carousel-gap);
+  padding-right: var(--carousel-gap);
+}
+
+.photo {
+  display: block;
+  flex: none;
+  padding: 0;
+  border: 0;
+  background: var(--color-surface);
+  cursor: zoom-in;
+}
+.photo img {
+  height: var(--carousel-height);
+  width: auto;
+  user-select: none;
+}
+
+/* Reduced motion: no drifting, scroll sideways instead */
+@media (prefers-reduced-motion: reduce) {
+  .carousel { overflow-x: auto; }
+  .running { animation: none; }
+}

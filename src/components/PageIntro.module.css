@@ -1,0 +1,18 @@
+.intro {
+  width: var(--intro-width);
+  margin-left: auto;
+  margin-right: var(--intro-right);
+  text-align: right;
+  /* keep what comes next below the vertical menu */
+  min-height: calc(var(--nav-vertical-width) * 13.43);
+}
+
+@media (max-width: 47.99rem) {
+  .intro {
+    width: auto;
+    min-height: 0;
+    margin: 0 var(--content-right) 0 var(--content-left);
+    text-align: left;
+    padding-top: calc(var(--nav-vertical-width) * 13.43 + var(--space-5));
+  }
+}

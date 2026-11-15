@@ -1,0 +1,53 @@
+/* ---- First screen: photo in the content column, italic text over it on the left ---- */
+.intro {
+  position: relative;
+  height: 100svh;
+  min-height: 34rem;
+}
+.gallery {
+  position: absolute;
+  left: var(--content-left);
+  right: var(--content-right);
+  top: calc(var(--page-top) + var(--nav-vertical-width) / 2); /* aligned with the top dot */
+  bottom: var(--about-gallery-bottom);
+}
+.introText {
+  position: absolute;
+  z-index: 1;
+  left: var(--page-left);
+  top: var(--about-intro-top);
+  width: var(--about-intro-width);
+  pointer-events: none; /* let the hover reach the photo underneath */
+}
+
+/* ---- Blocks below (optional image, two names, text), in the photo's column ---- */
+.block {
+  padding: 0 var(--content-right) 0 var(--content-left);
+}
+.block + .block { padding-top: var(--space-9); }
+.blockImage {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  margin-bottom: var(--about-gallery-bottom);
+}
+.names {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: var(--space-4);
+}
+.blockText { margin-top: var(--about-text-gap); }
+
+/* ---- Phones: stack everything ---- */
+@media (max-width: 47.99rem) {
+  .intro {
+    height: auto;
+    min-height: 0;
+    padding: var(--page-top) var(--content-right) 0 var(--content-left);
+  }
+  .gallery { position: relative; inset: auto; aspect-ratio: 4 / 5; }
+  .introText { position: static; width: auto; margin-top: var(--space-5); }
+  .block:first-of-type { padding-top: var(--space-7); }
+}

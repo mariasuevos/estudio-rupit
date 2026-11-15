@@ -1,0 +1,35 @@
+{
+  "text": "NUESTRA MANERA DE TRABAJAR NNNCPACA \n\nCOAHJCIODCJD \n\nNCAOJIOAJDOCIUICUPW \n\nNCAIOJIOCUWIQOUCWP,CKAJCIO \n\nNUESTRA MANERA DE TRABAJAR NNNCPACA\n\nCOAHJCIODCJD \n\nNCAOJIOAJDOCIUICUPW \n\n",
+  "submitLabel": "Enviar",
+  "successMessage": "¡Gracias! Os responderemos muy pronto.",
+  "duplicateMessage": "Ya hemos recibido esta misma solicitud. Os responderemos muy pronto.",
+  "captchaMessage": "Marca la casilla «No soy un robot» para enviar.",
+  "errorMessage": "No se ha podido enviar. Inténtalo de nuevo o escríbenos directamente por e-mail.",
+  "fields": {
+    "nombres": {
+      "label": "Nombres",
+      "placeholder": "Mar y Oskar"
+    },
+    "email": {
+      "label": "E-mail",
+      "placeholder": "example@gmail.com"
+    },
+    "fecha": {
+      "label": "Fecha prevista",
+      "placeholder": "octubre 2027"
+    },
+    "lugar": {
+      "label": "Lugar",
+      "hint": "(si se sabe ya finca especificar)",
+      "placeholder": "Castellón, Valencia"
+    },
+    "necesidad": {
+      "label": "¿Para qué nos necesitáis?",
+      "placeholder": "Contadnos para qué nos necesitáis para preparar vuestro día."
+    },
+    "dudas": {
+      "label": "Cualquier otra duda",
+      "placeholder": "Cualquier duda u otra cuestión que queráis comentarnos."
+    }
+  }
+}

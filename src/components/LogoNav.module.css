@@ -1,0 +1,90 @@
+.nav {
+  --mark-color: var(--color-text);
+  --fade: var(--nav-fade-opacity);
+}
+
+/* ---- Home: horizontal, white, with wordmark ---- */
+.hero {
+  --mark-color: var(--color-inverse-text);
+  --fade: var(--nav-fade-opacity-hero);
+  display: flex;
+  align-items: center;
+  gap: var(--hero-logo-gap);
+}
+.hero .symbol { width: var(--hero-symbol-width); flex: none; }
+.hero .label {
+  top: calc(100% + 0.5em);
+  left: 50%;
+  translate: -50% 0;
+  font-size: var(--hero-label-size);
+}
+
+/* ---- Inner pages: vertical symbol, label to the right ---- */
+.vertical .symbol { width: var(--nav-vertical-width); }
+.vertical .label {
+  top: 50%;
+  left: calc(100% + var(--nav-vertical-width) * 1.6);
+  translate: 0 -50%;
+  font-size: var(--nav-vertical-label-size);
+}
+
+/* ---- Shared ---- */
+.symbol {
+  position: relative;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.mark { position: absolute; }
+
+.wordmark {
+  display: block;
+  flex: none;
+  width: var(--hero-wordmark-width);
+  line-height: 0;
+  transition: opacity var(--duration-base) var(--ease-out);
+}
+.wordmark img { width: 100%; height: auto; }
+
+.link {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 100%;
+  color: var(--mark-color);
+  text-decoration: none;
+}
+
+.moon,
+.dot {
+  display: block;
+  width: 100%;
+  height: 100%;
+  background: var(--mark-color);
+  transition: opacity var(--duration-base) var(--ease-out);
+}
+.dot { border-radius: 50%; }
+.moon {
+  mask-size: 100% 100%;
+  mask-repeat: no-repeat;
+  -webkit-mask-size: 100% 100%;
+  -webkit-mask-repeat: no-repeat;
+}
+
+.label {
+  position: absolute;
+  white-space: nowrap;
+  line-height: 1;
+  color: var(--mark-color);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity var(--duration-base) var(--ease-out);
+}
+
+/* At rest (inner pages): the current section is solid, the rest faded */
+.vertical:has(.link[aria-current="page"]) :is(.moon, .dot) { opacity: var(--fade); }
+.vertical .link[aria-current="page"] :is(.moon, .dot) { opacity: 1; }
+
+/* Hover/focus: that mark is solid and shows its name; everything else fades (or hides on home) */
+.nav:has(.link:hover, .link:focus-visible) :is(.moon, .dot, .wordmark) { opacity: var(--fade); }
+.nav .link:is(:hover, :focus-visible) :is(.moon, .dot, .label) { opacity: 1; }

@@ -1,0 +1,24 @@
+.page {
+  padding: var(--page-top) var(--content-right) var(--space-9) var(--content-left);
+}
+
+.grid {
+  display: grid;
+  gap: var(--space-6);
+  align-items: start;
+}
+@media (min-width: 60rem) {
+  .page {
+  padding: var(--page-top) var(--content-right) var(--space-9) var(--content-left);
+}
+
+.grid { grid-template-columns: minmax(0, 1fr) minmax(0, 1.05fr); gap: var(--space-8); }
+}
+
+.intro { margin-bottom: var(--space-6); }
+.subtitle { margin-top: var(--space-5); }
+
+.media img { width: 100%; height: auto; }
+@media (min-width: 60rem) {
+  .media { margin-top: var(--space-8); }
+}

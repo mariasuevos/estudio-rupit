@@ -1,0 +1,46 @@
+@import "./reset.css";
+@import "./fonts.css";
+@import "./tokens.css";
+@import "./typography.css";
+
+body {
+  font-family: var(--font-body);
+  font-weight: var(--weight-light);
+  font-size: var(--text-base);
+  line-height: var(--leading-normal);
+  color: var(--color-text);
+  background: var(--color-bg);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  font-weight: var(--weight-regular);
+  line-height: var(--leading-tight);
+}
+
+p + p { margin-top: 1.4em; }
+
+a {
+  color: var(--color-link);
+  text-underline-offset: 0.2em;
+  text-decoration-color: var(--color-accent);
+  transition: color var(--duration-fast) var(--ease-out);
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-focus);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+::selection { background: var(--color-accent); color: var(--color-text); }
+
+/* ---- Layout utilities ---- */
+.measure { max-width: var(--text-measure); }
+
+.visually-hidden {
+  position: absolute !important;
+  width: 1px; height: 1px;
+  overflow: hidden; clip: rect(0 0 0 0);
+  white-space: nowrap;
+}

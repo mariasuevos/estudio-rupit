@@ -1,0 +1,162 @@
+{
+  "intro": "Lorem ipsum es un texto de relleno estándar utilizado en diseño gráfico, editorial y web para previsualizar maquetas (layouts) y tipografías antes de insertar el contenido definitivo. Se comenzó a utilizar en 1966, creado por diseñadores de Letraset y James Mosely, un bibliotecario en Londres, para crear las hojas de transferencia.",
+  "items": [
+    {
+      "image": "/uploads/servicios/mar-de-luna-3-18.jpg",
+      "caption": "Escenografía"
+    },
+    {
+      "image": "/uploads/servicios/mar-de-luna-3-22.jpg",
+      "caption": "Minutas & marcasitios"
+    },
+    {
+      "image": "/uploads/servicios/mar-de-luna-1-23.jpg",
+      "caption": "Dirección de arte"
+    }
+  ],
+  "categories": [
+    {
+      "title": "Papelería",
+      "subcategories": [
+        {
+          "title": "Save the Date",
+          "items": [
+            {
+              "image": "/uploads/servicios/mar-de-luna-3-22.jpg",
+              "caption": "Save the Date"
+            },
+            {
+              "image": "/uploads/servicios/mar-de-luna-3-18.jpg",
+              "caption": "Save the Date"
+            }
+          ]
+        },
+        {
+          "title": "Invitaciones",
+          "items": [
+            {
+              "image": "/uploads/servicios/mar-de-luna-3-18.jpg",
+              "caption": "Invitaciones"
+            },
+            {
+              "image": "/uploads/servicios/mar-de-luna-1-23.jpg",
+              "caption": "Invitaciones"
+            }
+          ]
+        },
+        {
+          "title": "Misales",
+          "items": [
+            {
+              "image": "/uploads/servicios/mar-de-luna-1-23.jpg",
+              "caption": "Misales"
+            },
+            {
+              "image": "/uploads/servicios/mar-de-luna-3-22.jpg",
+              "caption": "Misales"
+            }
+          ]
+        },
+        {
+          "title": "Seating Plan",
+          "items": [
+            {
+              "image": "/uploads/servicios/mar-de-luna-3-22.jpg",
+              "caption": "Seating Plan"
+            },
+            {
+              "image": "/uploads/servicios/mar-de-luna-3-18.jpg",
+              "caption": "Seating Plan"
+            }
+          ]
+        },
+        {
+          "title": "Meseros",
+          "items": [
+            {
+              "image": "/uploads/servicios/mar-de-luna-3-18.jpg",
+              "caption": "Meseros"
+            },
+            {
+              "image": "/uploads/servicios/mar-de-luna-1-23.jpg",
+              "caption": "Meseros"
+            }
+          ]
+        },
+        {
+          "title": "Minutas",
+          "items": [
+            {
+              "image": "/uploads/servicios/mar-de-luna-1-23.jpg",
+              "caption": "Minutas"
+            },
+            {
+              "image": "/uploads/servicios/mar-de-luna-3-22.jpg",
+              "caption": "Minutas"
+            }
+          ]
+        },
+        {
+          "title": "Marcasitios",
+          "items": [
+            {
+              "image": "/uploads/servicios/mar-de-luna-3-22.jpg",
+              "caption": "Marcasitios"
+            },
+            {
+              "image": "/uploads/servicios/mar-de-luna-3-18.jpg",
+              "caption": "Marcasitios"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Escenografía",
+      "items": [
+        {
+          "image": "/uploads/servicios/mar-de-luna-3-18.jpg",
+          "caption": "Escenografía"
+        },
+        {
+          "image": "/uploads/servicios/mar-de-luna-1-23.jpg",
+          "caption": "Escenografía"
+        },
+        {
+          "image": "/uploads/servicios/mar-de-luna-3-22.jpg",
+          "caption": "Escenografía"
+        }
+      ]
+    },
+    {
+      "title": "Detalles para invitados",
+      "items": [
+        {
+          "image": "/uploads/servicios/mar-de-luna-1-23.jpg",
+          "caption": "Detalles para invitados"
+        },
+        {
+          "image": "/uploads/servicios/mar-de-luna-3-22.jpg",
+          "caption": "Detalles para invitados"
+        }
+      ]
+    },
+    {
+      "title": "Dirección de arte",
+      "items": [
+        {
+          "image": "/uploads/servicios/mar-de-luna-3-22.jpg",
+          "caption": "Dirección de arte"
+        },
+        {
+          "image": "/uploads/servicios/mar-de-luna-3-18.jpg",
+          "caption": "Dirección de arte"
+        },
+        {
+          "image": "/uploads/servicios/mar-de-luna-1-23.jpg",
+          "caption": "Dirección de arte"
+        }
+      ]
+    }
+  ]
+}

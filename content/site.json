@@ -1,0 +1,46 @@
+{
+  "title": "estudio rupit",
+  "description": "",
+  "nav": [
+    {
+      "label": "sobre rupit",
+      "href": "/sobre-rupit"
+    },
+    {
+      "label": "servicios",
+      "href": "/servicios"
+    },
+    {
+      "label": "proyectos",
+      "href": "/proyectos"
+    },
+    {
+      "label": "contacto",
+      "href": "/contacto"
+    }
+  ],
+  "footer": {
+    "instagram": "@estudio.rupit",
+    "email": "estudiorupit@gmail.com",
+    "tagline": "Dirección artística y producción\nde bodas y eventos",
+    "legalLinks": [
+      {
+        "label": "Política de privacidad",
+        "href": "/politica-de-privacidad"
+      },
+      {
+        "label": "Política de cookies",
+        "href": "/politica-de-cookies"
+      },
+      {
+        "label": "Aviso legal",
+        "href": "/aviso-legal"
+      },
+      {
+        "label": "Términos y condiciones",
+        "href": "/terminos-y-condiciones"
+      }
+    ],
+    "homeLabel": "Inicio"
+  }
+}
