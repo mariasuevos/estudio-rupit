@@ -61,5 +61,7 @@ function siteMeta(): Plugin {
 }
 
 export default defineConfig({
+  // Sub-folder the site is served from: "/" normally, "/estudio-rupit/" on GitHub Pages (set by the deploy workflow)
+  base: process.env.BASE_PATH || "/",
   plugins: [react(), staticRoutes(), siteMeta()],
 });

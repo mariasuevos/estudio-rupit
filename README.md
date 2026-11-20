@@ -22,7 +22,7 @@ src/styles/
   fonts.css             @font-face declarations
   typography.css        Text styles from the style guide (.t-name, .t-accent, .t-body, .t-nav)
   global.css            Base styles + utilities (.measure, .visually-hidden)
-src/components/         LogoNav (the logo is the menu), Layout, Footer, PageIntro, HoverGallery, PhotoList,
+src/components/         LogoNav (the logo is the menu), Layout, Footer, PageIntro, Slideshow, PhotoList,
                         Carousel (endless drifting row), Lightbox (full-screen photo)
 src/lib/                text.ts (slugify, paragraphs), email.ts (EmailJS)
 src/pages/              Home (hero), AboutPage (/sobre-rupit), ServicesPage (/servicios/…), ProjectsPage (/proyectos), ContentPage (any page in content/pages)
@@ -54,12 +54,28 @@ tina/config.ts          CMS schema
   beige block on the right. Its texts are in Site settings → Pie de página; sizes in the `--footer-*` tokens.
 - Photos in `public/uploads/provisional-*.jpg` are low-res crops of the Figma mockups: replace them.
 
-## Enabling admins in production
+## Publishing (GitHub Pages) and editing with Tina Cloud
 
-1. Push the repo to GitHub.
-2. Create a project at https://app.tina.io, connect the repo and invite the admins.
-3. Set `TINA_CLIENT_ID`, `TINA_TOKEN` and `TINA_BRANCH` (see `.env.example`) in your host (Netlify, Vercel...).
-4. Build with `npm run build`. Admins edit at `/admin`; each save commits to the repo and triggers a rebuild.
+`.github/workflows/deploy.yml` builds the site and publishes it to GitHub Pages on every push to `main`
+(including the commits Tina makes when someone saves in `/admin`).
+
+1. **GitHub → repo → Settings → Pages → Source: "GitHub Actions".**
+2. **https://app.tina.io**: create a project from the GitHub repo (branch `main`).
+   Site URLs: `https://mariasuevos.github.io/estudio-rupit` and `http://localhost:5173`.
+   Copy the Client ID and create a read-only token. Invite the editors.
+3. **GitHub → repo → Settings → Secrets and variables → Actions**:
+   - Secrets: `TINA_CLIENT_ID`, `TINA_TOKEN`, `VITE_EMAILJS_SERVICE_ID`, `VITE_EMAILJS_TEMPLATE_ID`,
+     `VITE_EMAILJS_TEMPLATE_ID_NO_COPY`, `VITE_EMAILJS_PUBLIC_KEY`, `VITE_RECAPTCHA_SITE_KEY`.
+   - Variable: `VITE_EMAILJS_SEND_COPY` (`true`/`false`).
+4. Push to `main` (or Actions → "Deploy to GitHub Pages" → Run workflow).
+   Site: https://mariasuevos.github.io/estudio-rupit/ · editor: https://mariasuevos.github.io/estudio-rupit/admin/
+
+### Sub-folder / custom domain
+
+The site works in a sub-folder thanks to `BASE_PATH` (set in the workflow, `/estudio-rupit/`): Vite, the router,
+Tina's admin and media paths (`src/content.ts → withBase`) all use it. For a custom domain: set the domain in
+Settings → Pages, change `BASE_PATH` to `/` in the workflow, and update the Site URL in Tina Cloud.
+Code must use `asset("/…")` for files in `public/` (content paths from Tina are handled automatically).
 
 ## Routing on static hosts
 

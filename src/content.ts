@@ -10,6 +10,25 @@ import servicesData from "../content/servicios.json";
 import projectsData from "../content/proyectos.json";
 import contactData from "../content/contacto.json";
 
+/**
+ * The site can live in a sub-folder (GitHub Pages: /estudio-rupit/). Media paths saved by Tina
+ * ("/uploads/…") are made relative to that folder here, so components can use them as they are.
+ */
+const withBase = <T,>(data: T): T => {
+  const fix = (v: unknown): unknown =>
+    typeof v === "string" && v.startsWith("/uploads/")
+      ? asset(v)
+      : Array.isArray(v)
+        ? v.map(fix)
+        : v && typeof v === "object"
+          ? Object.fromEntries(Object.entries(v).map(([k, x]) => [k, fix(x)]))
+          : v;
+  return fix(data) as T;
+};
+
+/** "/brand/logo.png" → "/estudio-rupit/brand/logo.png" when the site is in a sub-folder. */
+export const asset = (path: string) => import.meta.env.BASE_URL + path.replace(/^\//, "");
+
 export type NavItem = { label: string; href: string };
 export type Photo = { image: string; alt?: string };
 export type PhotoItem = Partial<Photo> & { caption?: string };
@@ -23,9 +42,9 @@ export type SiteSettings = {
 };
 export type Page = { title: string; subtitle?: string; body?: string; image?: string; imageAlt?: string };
 
-export const siteSettings: SiteSettings = siteData;
+export const siteSettings: SiteSettings = withBase(siteData);
 export const home: { heroImage?: string; heroAlt?: string; heroHoverImage?: string; heroHoverAlt?: string } =
-  homeData;
+  withBase(homeData);
 
 export const about: {
   heading?: string;
@@ -34,16 +53,16 @@ export const about: {
   nameLeft?: string;
   nameRight?: string;
   gallery?: Photo[];
-} = aboutData;
+} = withBase(aboutData);
 
 export const services: {
   intro?: string;
   video?: string; // general page (/servicios, nothing selected); replaces `items` when set
   items?: PhotoItem[]; // general page (/servicios, nothing selected)
   categories?: (ServiceOption & { subcategories?: ServiceOption[] })[];
-} = servicesData;
+} = withBase(servicesData);
 
-export const projects: { intro?: string; projects?: { title?: string; photos?: Photo[] }[] } = projectsData;
+export const projects: { intro?: string; projects?: { title?: string; photos?: Photo[] }[] } = withBase(projectsData);
 
 export const contact: {
   text?: string;
@@ -53,9 +72,9 @@ export const contact: {
   captchaMessage?: string;
   errorMessage?: string;
   fields?: Record<string, { label?: string; hint?: string; placeholder?: string } | undefined>;
-} = contactData;
+} = withBase(contactData);
 
 const files = import.meta.glob<Page>("../content/pages/*.json", { eager: true, import: "default" });
 export const pages: Record<string, Page> = Object.fromEntries(
-  Object.entries(files).map(([path, page]) => [path.split("/").pop()!.replace(/\.json$/, ""), page]),
+  Object.entries(files).map(([path, page]) => [path.split("/").pop()!.replace(/\.json$/, ""), withBase(page)]),
 );

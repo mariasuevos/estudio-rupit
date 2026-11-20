@@ -29,6 +29,7 @@ export default defineConfig({
 
   build: {
     outputFolder: "admin", // admin UI served at /admin
+    basePath: (process.env.BASE_PATH || "").replace(/^\/|\/$/g, ""), // "estudio-rupit" on GitHub Pages
     publicFolder: "public",
   },
   media: {

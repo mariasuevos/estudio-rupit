@@ -1,6 +1,6 @@
 import { Fragment } from "react";
 import { Link } from "react-router";
-import { siteSettings } from "../content";
+import { asset, siteSettings } from "../content";
 import styles from "./Footer.module.css";
 
 /** Footer for every page except the home page: vertical wordmark, contact and legal links, stacked on the left. */
@@ -13,7 +13,7 @@ export default function Footer() {
       <Link to="/" className={styles.wordmarkLink} aria-label={`${siteSettings.title} — inicio`}>
         <img
           className={styles.wordmark}
-          src="/brand/logo-texto-morado-vertical.png"
+          src={asset("/brand/logo-texto-morado-vertical.png")}
           alt=""
           width={119}
           height={800}

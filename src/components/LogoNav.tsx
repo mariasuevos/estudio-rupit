@@ -1,5 +1,5 @@
 import { Link, useLocation } from "react-router";
-import { siteSettings } from "../content";
+import { asset, siteSettings } from "../content";
 import moon from "../assets/brand/moon.png";
 import moonVertical from "../assets/brand/moon-vertical.png";
 import styles from "./LogoNav.module.css";
@@ -52,7 +52,7 @@ export default function LogoNav({ variant }: { variant: Variant }) {
     <nav aria-label="Principal" className={`${styles.nav} ${styles[variant]}`}>
       {variant === "hero" && (
         <Link to="/" className={styles.wordmark}>
-          <img src="/brand/logo-texto-blanco.png" alt={siteSettings.title} />
+          <img src={asset("/brand/logo-texto-blanco.png")} alt={siteSettings.title} />
         </Link>
       )}
       <ul role="list" className={styles.symbol} style={{ aspectRatio: `${frame.w} / ${frame.h}` }}>
