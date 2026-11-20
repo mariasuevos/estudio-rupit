@@ -1,6 +1,6 @@
 /*
- * Figma "servicios": italic intro top-right; below, three columns:
- * categories | sub-options (only Papelería) | photo list flush with the right edge.
+ * Three columns: categories | sub-options (Papelería, Escenografía) | photo list flush with the right edge.
+ * Categories, sub-options and photos start below the vertical menu; the general video starts at the top.
  */
 .page { padding-top: var(--page-top); }
 
@@ -11,9 +11,16 @@
     calc(var(--services-photos-left) - var(--services-sub-left))
     minmax(0, 1fr);
   align-items: start;
-  margin-top: var(--services-grid-top);
   padding-left: var(--page-left);
 }
+
+/* Below the vertical menu (menu height = dot size × 3518/262) */
+.categories,
+.subcategories,
+.photos {
+  margin-top: calc(var(--nav-vertical-width) * 13.43 + var(--services-grid-top));
+}
+.photos.hasVideo { margin-top: 0; }
 
 .categories ul,
 .subcategories ul {
@@ -38,8 +45,19 @@
 .categories a[aria-current],
 .subLink[aria-current="page"] { font-weight: var(--weight-semibold); }
 
+/* General page: looping video, as wide as the photo column */
+.video {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
 /* ---- Phones: one column ---- */
 @media (max-width: 47.99rem) {
+  .categories,
+  .subcategories,
+  .photos { margin-top: 0; }
+  .categories { padding-top: calc(var(--nav-vertical-width) * 13.43 + var(--space-5)); }
   .grid {
     grid-template-columns: minmax(0, 1fr);
     gap: var(--space-6);

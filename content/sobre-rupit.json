@@ -1,5 +1,9 @@
 {
-  "intro": "Lorem ipsum es un texto de relleno estándar utilizado en diseño gráfico, editorial y web para previsualizar maquetas (layouts) y tipografías antes de insertar el contenido definitivo. Se comenzó a utilizar en 1966, creado por diseñadores de Letraset y James Mosely, un bibliotecario en Londres, para crear las hojas de transferencia.",
+  "heading": "Rupit es un estudio creativo que busca maneras personalizadas de contar historias",
+  "intro": "Integramos diseño gráfico y escenográfico para construir proyectos de dirección artística para bodas y eventos.\n\nEstudio Rupit apuesta por un lenguaje sencillo, orgánico y cotidiano.\n\nPartiendo de su base como artistas y diseñadoras, Mar de Luna y Jimena Sierra abordan cada proyecto desde una mirada propia, buscando maneras de crear alejadas de soluciones estandarizadas.",
+  "closing": "Abiertas siempre a cualquier proyecto o idea.",
+  "nameLeft": "Mar de Luna",
+  "nameRight": "Jimena Sierra",
   "gallery": [
     {
       "image": "/uploads/provisional-sobre-1.jpg",
@@ -8,13 +12,6 @@
     {
       "image": "/uploads/provisional-sobre-2.jpg",
       "alt": "Retrato con flores rojas a contraluz (foto provisional)"
-    }
-  ],
-  "blocks": [
-    {
-      "titleLeft": "Mar de Luna",
-      "titleRight": "Jimena Sierra",
-      "text": "Lorem ipsum es un texto de relleno estándar utilizado en diseño gráfico, editorial y web para previsualizar maquetas (layouts) y tipografías antes de insertar el contenido definitivo. Se comenzó a utilizar en 1966, creado por diseñadores de Letraset y James Mosely, un bibliotecario en Londres, para crear las hojas de transferencia."
     }
   ]
 }

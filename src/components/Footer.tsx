@@ -3,8 +3,8 @@ import { Link } from "react-router";
 import { siteSettings } from "../content";
 import styles from "./Footer.module.css";
 
-/** Footer for every page except the home page. `showHome` = beige "HOME" square (hidden on beige pages). */
-export default function Footer({ showHome = true }: { showHome?: boolean }) {
+/** Footer for every page except the home page: vertical wordmark, contact and legal links, stacked on the left. */
+export default function Footer() {
   const f = siteSettings.footer ?? {};
   const handle = f.instagram?.replace(/^@/, "");
 
@@ -39,12 +39,6 @@ export default function Footer({ showHome = true }: { showHome?: boolean }) {
             </Fragment>
           ))}
         </nav>
-      )}
-
-      {showHome && (
-        <Link to="/" className={`${styles.home} t-name`}>
-          {f.homeLabel || "Home"}
-        </Link>
       )}
     </footer>
   );

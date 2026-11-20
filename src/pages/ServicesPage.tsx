@@ -2,15 +2,15 @@ import { Link, useParams } from "react-router";
 import { services } from "../content";
 import { slugify } from "../lib/text";
 import PhotoList from "../components/PhotoList";
-import PageIntro from "../components/PageIntro";
 import styles from "./ServicesPage.module.css";
 
 /*
- * /servicios                         → general page: nothing selected, the general photo list
- * /servicios/:category               → that category's photos; if it has sub-options (e.g. Papelería),
- *                                      they unfold but none is selected and the general photos stay
+ * /servicios                         → general page: nothing selected, the general video (or photo list)
+ * /servicios/:category               → that category's photos; if it has sub-options (Papelería, Escenografía),
+ *                                      they unfold but none is selected and the general video stays
  * /servicios/:category/:sub          → a sub-option
  * Every category and sub-option has its own independent photo list (edited in TinaCMS → Servicios).
+ * The general video starts at the very top of the page; categories and photo lists start below the menu.
  */
 export default function ServicesPage() {
   const params = useParams();
@@ -22,13 +22,13 @@ export default function ServicesPage() {
 
   const catPath = (title: string) => `/servicios/${slugify(title)}`;
   // A sub-option's photos; else the category's (if it has no sub-options); else the general photos
-  const items = notFound ? [] : ((sub ?? (category && subs.length === 0 ? category : services)).items ?? []);
+  const source = sub ?? (category && subs.length === 0 ? category : services);
+  const items = notFound ? [] : (source.items ?? []);
+  const video = !notFound && source === services ? services.video : undefined;
 
   return (
     <article className={styles.page}>
       <h1 className="visually-hidden">servicios{category ? ` · ${category.title}` : ""}{sub ? ` · ${sub.title}` : ""}</h1>
-
-      <PageIntro text={services.intro} />
 
       <div className={styles.grid}>
         <nav aria-label="Servicios" className={styles.categories}>
@@ -65,8 +65,14 @@ export default function ServicesPage() {
           )}
         </nav>
 
-        <div className={styles.photos}>
-          {notFound ? <p className="t-lead">No encontrado.</p> : <PhotoList key={params.category + "/" + params.sub} items={items} />}
+        <div className={`${styles.photos} ${video ? styles.hasVideo : ""}`}>
+          {notFound ? (
+            <p className="t-lead">No encontrado.</p>
+          ) : video ? (
+            <video className={styles.video} src={video} autoPlay muted loop playsInline aria-hidden="true" />
+          ) : (
+            <PhotoList key={params.category + "/" + params.sub} items={items} />
+          )}
         </div>
       </div>
     </article>

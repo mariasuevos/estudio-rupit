@@ -70,7 +70,6 @@ export default defineConfig({
             fields: [
               { type: "string", name: "instagram", label: "Instagram", description: "Usuario, p. ej. @estudio.rupit" },
               { type: "string", name: "email", label: "Email" },
-              { type: "string", name: "homeLabel", label: "Texto del cuadro beige", description: "Enlace al inicio, p. ej. Home" },
               {
                 type: "string",
                 name: "tagline",
@@ -109,6 +108,13 @@ export default defineConfig({
         fields: [
           { type: "image", name: "heroImage", label: "Foto de portada" },
           { type: "string", name: "heroAlt", label: "Descripción de la foto (accesibilidad)" },
+          {
+            type: "image",
+            name: "heroHoverImage",
+            label: "Foto al pasar el ratón por el menú",
+            description: "Sustituye a la foto de portada mientras el ratón está sobre la media luna o un punto del logo.",
+          },
+          { type: "string", name: "heroHoverAlt", label: "Descripción de la foto al pasar el ratón (accesibilidad)" },
         ],
       },
       {
@@ -119,42 +125,27 @@ export default defineConfig({
         match: { include: "sobre-rupit" },
         ui: { allowedActions: { create: false, delete: false }, router: () => "/sobre-rupit" },
         fields: [
+          { type: "string", name: "heading", label: "Titular (cursiva, en mayúsculas)", ui: { component: "textarea" } },
           {
             type: "string",
             name: "intro",
-            label: "Texto de entrada (cursiva)",
+            label: "Texto (cursiva)",
             description: "Separa los párrafos con una línea en blanco.",
             ui: { component: "textarea" },
           },
+          { type: "string", name: "closing", label: "Frase final (sobre los nombres)" },
+          { type: "string", name: "nameLeft", label: "Nombre izquierda" },
+          { type: "string", name: "nameRight", label: "Nombre derecha" },
           {
             type: "object",
             name: "gallery",
-            label: "Fotos (cambian al pasar el ratón)",
+            label: "Fotos (van pasando solas)",
+            description: "Se muestran en este orden, una tras otra, cada pocos segundos. Puedes añadir todas las que quieras.",
             list: true,
             ui: { itemProps: (item) => ({ label: item?.alt || item?.image }) },
             fields: [
               { type: "image", name: "image", label: "Foto", required: true },
               { type: "string", name: "alt", label: "Descripción de la foto (accesibilidad)" },
-            ],
-          },
-          {
-            type: "object",
-            name: "blocks",
-            label: "Bloques (al hacer scroll)",
-            list: true,
-            ui: { itemProps: (item) => ({ label: [item?.titleLeft, item?.titleRight].filter(Boolean).join(" · ") }) },
-            fields: [
-              { type: "image", name: "image", label: "Foto" },
-              { type: "string", name: "imageAlt", label: "Descripción de la foto (accesibilidad)" },
-              { type: "string", name: "titleLeft", label: "Nombre izquierda" },
-              { type: "string", name: "titleRight", label: "Nombre derecha" },
-              {
-                type: "string",
-                name: "text",
-                label: "Texto (cursiva)",
-                description: "Separa los párrafos con una línea en blanco.",
-                ui: { component: "textarea" },
-              },
             ],
           },
         ],
@@ -174,9 +165,16 @@ export default defineConfig({
             ui: { component: "textarea" },
           },
           {
+            type: "image",
+            name: "video",
+            label: "Vídeo de la página general",
+            description:
+              "Se ve al entrar en servicios, antes de elegir ninguna categoría (archivo .mp4). Si lo quitas, se muestran las fotos de abajo.",
+          },
+          {
             ...photoListField,
-            label: "Fotos de la página general",
-            description: "Se ven al entrar en servicios, antes de elegir ninguna categoría.",
+            label: "Fotos de la página general (si no hay vídeo)",
+            description: "Se ven al entrar en servicios, antes de elegir ninguna categoría, solo si no hay vídeo.",
           },
           {
             type: "object",
@@ -192,7 +190,7 @@ export default defineConfig({
               {
                 type: "object",
                 name: "subcategories",
-                label: "Opciones desplegables (p. ej. las de Papelería)",
+                label: "Opciones desplegables (p. ej. las de Papelería o Escenografía)",
                 list: true,
                 ui: { itemProps: (item) => ({ label: item?.title }) },
                 fields: [

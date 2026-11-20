@@ -64,10 +64,14 @@
   --content-right: 4.2vw;                   /* right margin of photos, text and footer block */
 
   /* ---- Sobre rupit ---- */
-  --about-gallery-bottom: 7.3svh;           /* white space under the photo */
-  --about-intro-top: 37.7%;                 /* italic intro text: vertical position */
-  --about-intro-width: 34.7vw;              /* italic intro text (overlaps the photo) */
-  --about-text-gap: clamp(1.5rem, 3.5vw, 3.5rem); /* names → text */
+  --about-top: 13vw;                        /* page top → text and photo */
+  --about-text-left: 20.6vw;                /* text column */
+  --about-text-width: 31vw;
+  --about-photo-left: 58.2vw;               /* square photo */
+  --about-photo-width: 30.6vw;
+  --about-names-gap: clamp(1.25rem, 2.3vw, 2.5rem); /* MAR DE LUNA ↔ JIMENA SIERRA */
+  --text-about: clamp(0.875rem, 0.3rem + 0.8vw, 1.1875rem); /* italic text */
+  --text-about-name: clamp(1rem, 0.4rem + 0.95vw, 1.5rem);
 
   /* ---- Italic intro text, top-right (servicios, proyectos) ---- */
   --intro-width: 27.6vw;
@@ -109,18 +113,18 @@
   --text-form: clamp(0.875rem, 0.4rem + 0.6vw, 1.125rem);
 
   /* ---- Footer ---- */
-  --footer-top: 30svh;             /* space between the page and the footer */
-  --footer-wordmark-height: clamp(9rem, 15vw, 20rem); /* vertical "estudio rupit" */
-  --footer-gap-wordmark: 9svh;     /* wordmark → contact */
-  --footer-gap-legal: 4.6svh;      /* contact → legal links */
+  --footer-top: var(--space-6);    /* space between the page and the footer */
+  --footer-left: 3.8vw;
+  --footer-wordmark-height: clamp(7rem, 9.5vw, 12rem); /* vertical "estudio rupit" */
+  --footer-gap-wordmark: var(--space-5); /* wordmark → contact */
+  --footer-gap-legal: var(--space-6);    /* contact → legal links */
   --footer-bottom: 7.2svh;         /* space under the legal links */
-  --footer-block-size: max(7rem, 19.4vw); /* beige "HOME" square */
-  --footer-block-bottom: 5.8svh;
-  --text-contact: clamp(1rem, 0.45rem + 1.15vw, 1.625rem);
+  --text-contact: clamp(0.75rem, 0.55rem + 0.35vw, 0.875rem);
+  --text-footer-legal: clamp(0.625rem, 0.5rem + 0.4vw, 0.9375rem);
   --text-legal: clamp(0.625rem, 0.55rem + 0.2vw, 0.8125rem);
 
   /* ---- Logo menu ---- */
-  --nav-vertical-width: clamp(0.75rem, 1.1vw, 1.25rem);              /* inner pages: dot size */
+  --nav-vertical-width: clamp(0.625rem, 0.9vw, 1.0625rem);           /* inner pages: dot size (menu height = this × 13.43) */
   --nav-vertical-label-size: clamp(0.9375rem, 0.4rem + 0.75vw, 1.25rem); /* inner pages: section name */
   /* Home hero logo: wordmark and dots are sized separately */
   --hero-wordmark-width: max(8.5rem, 20vw); /* "estudio rupit" */
@@ -135,7 +139,7 @@
   /* ---- Motion ---- */
   --duration-fast: 120ms;
   --duration-base: 220ms;
-  --duration-gallery: 450ms;
+  --duration-gallery: 1000ms; /* cross-fade between slideshow photos */
   --ease-out: cubic-bezier(0.2, 0.8, 0.2, 1);
 }
 
@@ -153,5 +157,6 @@
     --page-left: 1rem;
     --content-left: calc(var(--page-left) + var(--nav-vertical-width) + 1.25rem);
     --content-right: 1rem;
+    --footer-left: 1rem;
   }
 }

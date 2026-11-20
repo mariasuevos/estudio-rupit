@@ -1,5 +1,5 @@
 {
-  "intro": "Lorem ipsum es un texto de relleno estándar utilizado en diseño gráfico, editorial y web para previsualizar maquetas (layouts) y tipografías antes de insertar el contenido definitivo. Se comenzó a utilizar en 1966, creado por diseñadores de Letraset y James Mosely, un bibliotecario en Londres, para crear las hojas de transferencia.",
+  "video": "/uploads/servicios/default-view.mp4",
   "items": [
     {
       "image": "/uploads/servicios/mar-de-luna-3-18.jpg",
@@ -125,6 +125,86 @@
         {
           "image": "/uploads/servicios/mar-de-luna-3-22.jpg",
           "caption": "Escenografía"
+        }
+      ],
+      "subcategories": [
+        {
+          "title": "Diseño de mesas y banquete",
+          "items": [
+            {
+              "image": "/uploads/servicios/mar-de-luna-3-18.jpg",
+              "caption": "Diseño de mesas y banquete"
+            },
+            {
+              "image": "/uploads/servicios/mar-de-luna-1-23.jpg",
+              "caption": "Diseño de mesas y banquete"
+            }
+          ]
+        },
+        {
+          "title": "Escenografía de ceremonia",
+          "items": [
+            {
+              "image": "/uploads/servicios/mar-de-luna-1-23.jpg",
+              "caption": "Escenografía de ceremonia"
+            },
+            {
+              "image": "/uploads/servicios/mar-de-luna-3-22.jpg",
+              "caption": "Escenografía de ceremonia"
+            }
+          ]
+        },
+        {
+          "title": "Photocalls y fondos",
+          "items": [
+            {
+              "image": "/uploads/servicios/mar-de-luna-3-22.jpg",
+              "caption": "Photocalls y fondos"
+            },
+            {
+              "image": "/uploads/servicios/mar-de-luna-3-18.jpg",
+              "caption": "Photocalls y fondos"
+            }
+          ]
+        },
+        {
+          "title": "Seating plan",
+          "items": [
+            {
+              "image": "/uploads/servicios/mar-de-luna-3-18.jpg",
+              "caption": "Seating plan"
+            },
+            {
+              "image": "/uploads/servicios/mar-de-luna-1-23.jpg",
+              "caption": "Seating plan"
+            }
+          ]
+        },
+        {
+          "title": "Diseño de entradas y espacios",
+          "items": [
+            {
+              "image": "/uploads/servicios/mar-de-luna-1-23.jpg",
+              "caption": "Diseño de entradas y espacios"
+            },
+            {
+              "image": "/uploads/servicios/mar-de-luna-3-22.jpg",
+              "caption": "Diseño de entradas y espacios"
+            }
+          ]
+        },
+        {
+          "title": "Draping y decoración textil",
+          "items": [
+            {
+              "image": "/uploads/servicios/mar-de-luna-3-22.jpg",
+              "caption": "Draping y decoración textil"
+            },
+            {
+              "image": "/uploads/servicios/mar-de-luna-3-18.jpg",
+              "caption": "Draping y decoración textil"
+            }
+          ]
         }
       ]
     },

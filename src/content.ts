@@ -19,21 +19,26 @@ export type SiteSettings = {
   title: string;
   description?: string;
   nav?: NavItem[];
-  footer?: { instagram?: string; email?: string; tagline?: string; legalLinks?: NavItem[]; homeLabel?: string };
+  footer?: { instagram?: string; email?: string; tagline?: string; legalLinks?: NavItem[] };
 };
 export type Page = { title: string; subtitle?: string; body?: string; image?: string; imageAlt?: string };
 
 export const siteSettings: SiteSettings = siteData;
-export const home: { heroImage?: string; heroAlt?: string } = homeData;
+export const home: { heroImage?: string; heroAlt?: string; heroHoverImage?: string; heroHoverAlt?: string } =
+  homeData;
 
 export const about: {
+  heading?: string;
   intro?: string;
+  closing?: string;
+  nameLeft?: string;
+  nameRight?: string;
   gallery?: Photo[];
-  blocks?: { image?: string; imageAlt?: string; titleLeft?: string; titleRight?: string; text?: string }[];
 } = aboutData;
 
 export const services: {
   intro?: string;
+  video?: string; // general page (/servicios, nothing selected); replaces `items` when set
   items?: PhotoItem[]; // general page (/servicios, nothing selected)
   categories?: (ServiceOption & { subcategories?: ServiceOption[] })[];
 } = servicesData;

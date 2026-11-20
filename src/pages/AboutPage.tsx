@@ -1,39 +1,38 @@
 import { about } from "../content";
-import HoverGallery from "../components/HoverGallery";
+import Slideshow from "../components/Slideshow";
 import { paragraphs } from "../lib/text";
 import styles from "./AboutPage.module.css";
 
-/** "sobre rupit": full-screen intro with hover gallery, then one block per person/story. */
+/**
+ * "sobre rupit": text column on the left (heading + paragraphs at the top,
+ * closing line + the two names at the bottom), square photo on the right
+ * that changes every few seconds.
+ */
 export default function AboutPage() {
   return (
-    <article>
+    <article className={styles.about}>
       <h1 className="visually-hidden">sobre rupit</h1>
 
-      <section className={styles.intro}>
-        <HoverGallery images={about.gallery ?? []} className={styles.gallery} />
-        <div className={`t-lead ${styles.introText}`}>
+      <div className={styles.text}>
+        <div className={`t-lead ${styles.intro}`}>
+          {about.heading && <h2 className={styles.heading}>{about.heading}</h2>}
           {paragraphs(about.intro).map((p, i) => (
             <p key={i}>{p}</p>
           ))}
         </div>
-      </section>
 
-      {about.blocks?.map((block, i) => (
-        <section key={i} className={styles.block}>
-          {block.image && <img className={styles.blockImage} src={block.image} alt={block.imageAlt ?? ""} loading="lazy" />}
-          {(block.titleLeft || block.titleRight) && (
+        <div>
+          {about.closing && <p className={styles.closing}>{about.closing}</p>}
+          {(about.nameLeft || about.nameRight) && (
             <div className={styles.names}>
-              <h2 className="t-name">{block.titleLeft}</h2>
-              <h2 className="t-name">{block.titleRight}</h2>
+              {about.nameLeft && <p className={`t-name ${styles.name}`}>{about.nameLeft}</p>}
+              {about.nameRight && <p className={`t-name ${styles.name}`}>{about.nameRight}</p>}
             </div>
           )}
-          <div className={`t-lead ${styles.blockText}`}>
-            {paragraphs(block.text).map((p, j) => (
-              <p key={j}>{p}</p>
-            ))}
-          </div>
-        </section>
-      ))}
+        </div>
+      </div>
+
+      <Slideshow images={about.gallery ?? []} className={styles.photo} />
     </article>
   );
 }

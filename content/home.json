@@ -1,4 +1,6 @@
 {
-  "heroImage": "/uploads/jimena-sierra.jpg",
-  "heroAlt": "Mesa puesta frente al mar con una mujer vestida de blanco"
+  "heroImage": "/uploads/home2-provisional.png",
+  "heroAlt": "",
+  "heroHoverImage": "/uploads/jimena-sierra.jpg",
+  "heroHoverAlt": "Mesa puesta frente al mar con una mujer vestida de blanco"
 }

@@ -1,9 +1,9 @@
-.gallery {
+.slideshow {
   position: relative;
   overflow: hidden;
   background: var(--color-surface);
 }
-.gallery img {
+.slideshow img {
   position: absolute;
   inset: 0;
   width: 100%;
@@ -12,4 +12,4 @@
   opacity: 0;
   transition: opacity var(--duration-gallery) var(--ease-out);
 }
-.gallery img.active { opacity: 1; }
+.slideshow img.active { opacity: 1; }

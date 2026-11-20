@@ -25,3 +25,12 @@
   top: var(--hero-logo-top);
   translate: 0 -50%;
 }
+
+/* Second photo: hidden at rest, shown while a logo mark (menu link) is hovered/focused */
+.hoverImage {
+  opacity: 0;
+  transition: opacity var(--duration-base) var(--ease-out);
+}
+.hero:has(nav li a:is(:hover, :focus-visible)) .hoverImage {
+  opacity: 1;
+}

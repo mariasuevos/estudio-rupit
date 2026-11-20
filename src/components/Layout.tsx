@@ -19,7 +19,7 @@ export default function Layout() {
       <main className={styles.main}>
         <Outlet />
       </main>
-      <Footer showHome={!beige} />
+      <Footer />
     </div>
   );
 }
