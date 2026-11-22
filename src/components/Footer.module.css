@@ -47,7 +47,10 @@
   .legal { font-size: var(--text-mobile-legal); letter-spacing: 0.06em; }
 
   /* Compact: only the legal links, centred */
-  .compact { align-items: center; padding-left: var(--space-4); padding-right: var(--space-4); }
+  .compact {
+    align-items: center;
+    padding: var(--mobile-gap-l) var(--space-4) var(--mobile-gap-m);
+  }
   .compact .wordmarkLink,
   .compact .contact { display: none; }
   .compact .legal { margin-top: 0; text-align: center; }

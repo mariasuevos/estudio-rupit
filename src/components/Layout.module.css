@@ -1,3 +1,11 @@
+/* At least one screen tall, footer at the bottom: short pages fill the screen without scrolling */
+.layout {
+  display: flex;
+  flex-direction: column;
+  min-height: 100svh;
+}
+.layout > .main { flex: 1; }
+
 /* Vertical logo menu, top-left; it scrolls away with the page */
 .menu {
   position: absolute;

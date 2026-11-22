@@ -48,3 +48,10 @@
 @media (max-width: 47.99rem), (hover: none) {
   .hoverImage { opacity: 1; }
 }
+
+/* The home page is exactly one screen: no scrolling and no "bounce" when dragging (iPhone) */
+:global(html):has(.hero),
+:global(body):has(.hero) {
+  overflow: hidden;
+  overscroll-behavior: none;
+}

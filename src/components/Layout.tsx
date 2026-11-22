@@ -22,7 +22,7 @@ export default function Layout() {
   const handle = f.instagram?.replace(/^@/, "");
 
   return (
-    <div className={beige ? styles.beige : beigeOnPhones ? styles.beigeMobile : undefined}>
+    <div className={`${styles.layout} ${beige ? styles.beige : beigeOnPhones ? styles.beigeMobile : ""}`}>
       <header className={styles.menu}>
         <LogoNav variant="vertical" />
       </header>

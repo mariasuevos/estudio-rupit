@@ -98,7 +98,7 @@
   .mobileList > ul {
     display: flex;
     flex-direction: column;
-    gap: var(--space-4);
+    gap: var(--mobile-gap-m);
   }
   .mobileCategory:nth-child(odd) { padding-left: var(--services-mobile-pivot); }
   .mobileCategory:nth-child(even) {
@@ -114,8 +114,8 @@
   .mobileSubs {
     display: flex;
     flex-direction: column;
-    gap: var(--space-3);
-    margin-top: var(--space-3);
+    gap: var(--mobile-gap-s);
+    margin-top: var(--mobile-gap-s);
   }
   .mobileSubs li {
     font-size: var(--text-services-mobile-option);
