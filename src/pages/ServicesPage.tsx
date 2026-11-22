@@ -13,7 +13,8 @@ import styles from "./ServicesPage.module.css";
  * Every category and sub-option has its own independent photo list (edited in TinaCMS → Servicios).
  * The general video starts at the very top of the page; categories and photo lists start below the menu.
  *
- * Phones: /servicios shows every category with all its options (beige page, see Layout);
+ * Phones: /servicios shows every category with all its options (beige page, see Layout); a category
+ * with options is only a heading there (its options are the links);
  * any other page shows only that category's or option's text and photos — also a category with
  * sub-options, which on desktop unfolds them instead.
  */
@@ -39,9 +40,14 @@ export default function ServicesPage() {
         <ul role="list">
           {categories.map((c) => (
             <li key={c.title} className={styles.mobileCategory}>
-              <Link to={catPath(c.title)} className={`t-name ${styles.mobileTitle}`}>
-                {c.title}
-              </Link>
+              {(c.subcategories?.length ?? 0) > 0 ? (
+                // With options: just a heading; its options are the links
+                <h2 className={`t-name ${styles.mobileTitle}`}>{c.title}</h2>
+              ) : (
+                <Link to={catPath(c.title)} className={`t-name ${styles.mobileTitle}`}>
+                  {c.title}
+                </Link>
+              )}
               {(c.subcategories?.length ?? 0) > 0 && (
                 <ul role="list" className={styles.mobileSubs}>
                   {c.subcategories!.map((s) => (

@@ -113,7 +113,6 @@
     },
     {
       "title": "Escenografía",
-      "description": "La escenografía o “set design” implica la creación de una atmósfera coherente y cuidada a través de la combinación de diversos elementos (mobiliario, iluminación, flores, textiles, etc.)",
       "items": [
         {
           "image": "/uploads/servicios/mar-de-luna-3-18.jpg",
@@ -131,6 +130,7 @@
       "subcategories": [
         {
           "title": "Diseño de mesas y banquete",
+          "description": "La escenografía o “set design” implica la creación de una atmósfera coherente y cuidada a través de la combinación de diversos elementos (mobiliario, iluminación, flores, textiles, etc.)",
           "items": [
             {
               "image": "/uploads/servicios/mar-de-luna-3-18.jpg",
@@ -144,6 +144,7 @@
         },
         {
           "title": "Escenografía de ceremonia",
+          "description": "La escenografía o “set design” implica la creación de una atmósfera coherente y cuidada a través de la combinación de diversos elementos (mobiliario, iluminación, flores, textiles, etc.)",
           "items": [
             {
               "image": "/uploads/servicios/mar-de-luna-1-23.jpg",
@@ -157,6 +158,7 @@
         },
         {
           "title": "Photocalls y fondos",
+          "description": "La escenografía o “set design” implica la creación de una atmósfera coherente y cuidada a través de la combinación de diversos elementos (mobiliario, iluminación, flores, textiles, etc.)",
           "items": [
             {
               "image": "/uploads/servicios/mar-de-luna-3-22.jpg",
@@ -170,6 +172,7 @@
         },
         {
           "title": "Seating plan",
+          "description": "La escenografía o “set design” implica la creación de una atmósfera coherente y cuidada a través de la combinación de diversos elementos (mobiliario, iluminación, flores, textiles, etc.)",
           "items": [
             {
               "image": "/uploads/servicios/mar-de-luna-3-18.jpg",
@@ -183,6 +186,7 @@
         },
         {
           "title": "Diseño de entradas y espacios",
+          "description": "La escenografía o “set design” implica la creación de una atmósfera coherente y cuidada a través de la combinación de diversos elementos (mobiliario, iluminación, flores, textiles, etc.)",
           "items": [
             {
               "image": "/uploads/servicios/mar-de-luna-1-23.jpg",
@@ -196,6 +200,7 @@
         },
         {
           "title": "Draping y decoración textil",
+          "description": "La escenografía o “set design” implica la creación de una atmósfera coherente y cuidada a través de la combinación de diversos elementos (mobiliario, iluminación, flores, textiles, etc.)",
           "items": [
             {
               "image": "/uploads/servicios/mar-de-luna-3-22.jpg",
