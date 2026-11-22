@@ -76,7 +76,8 @@
   .mobileOnly { display: block; }
   .desktopOnly,
   .video { display: none; }
-  .photos :global(figcaption) { display: none; }
+  /* Captions under the edge-to-edge photos, aligned with the text above */
+  .photos :global(figcaption) { padding: 0 var(--content-right) 0 var(--page-left); }
   .description {
     display: block;
     margin: 0 var(--content-right) var(--space-6) var(--page-left);
