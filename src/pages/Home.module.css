@@ -4,9 +4,9 @@
  * (and equally from both sides on narrow/portrait screens).
  */
 .hero {
-  position: relative;
+  position: fixed; /* the home page never scrolls */
+  inset: 0;
   height: 100svh;
-  min-height: 28rem;
   overflow: hidden;
   background: var(--color-inverse-bg);
 }

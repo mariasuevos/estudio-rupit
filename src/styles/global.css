@@ -3,6 +3,12 @@
 @import "./tokens.css";
 @import "./typography.css";
 
+/* Phones: no "bounce" when dragging past the top or bottom (iPhone Safari), so short pages stay still */
+@media (max-width: 47.99rem) {
+  html,
+  body { overscroll-behavior: none; }
+}
+
 body {
   font-family: var(--font-body);
   font-weight: var(--weight-light);

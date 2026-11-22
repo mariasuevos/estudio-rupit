@@ -167,7 +167,8 @@
     --hero-symbol-width-mobile: 74vw;        /* home: moon + 3 dots */
     --hero-logo-top-mobile: 41%;
     --text-about-name-mobile: 1.375rem;      /* MAR DE LUNA / JIMENA SIERRA */
-    --about-photo-height-mobile: clamp(9rem, 30svh, 60vw);
+    /* Photo takes what the text leaves free (~32rem), so the page fits one screen; never wider than 5:3 */
+    --about-photo-height-mobile: clamp(8rem, calc(100svh - 32rem), 60vw);
     --services-mobile-pivot: 52%;
     --contact-form-side-mobile: 8vw;         /* contacto: space at each side of the form */            /* vertical line the categories zigzag around */
     --text-services-mobile-title: 0.8125rem;

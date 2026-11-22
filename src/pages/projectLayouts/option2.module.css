@@ -2,7 +2,7 @@
 @media (max-width: 47.99rem) {
   .layout {
     --projects-carousel-height: 12rem;
-    --projects-photo-gap: var(--space-6);
+    --projects-photo-gap: var(--space-3);
     --projects-gap: var(--space-7);
     --projects-title-gap: var(--space-6);
     --projects-title-weight: var(--weight-regular);
