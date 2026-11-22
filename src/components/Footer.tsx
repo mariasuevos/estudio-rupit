@@ -1,6 +1,6 @@
 import { Fragment } from "react";
 import { Link } from "react-router";
-import { asset, siteSettings } from "../content";
+import { asset, useSiteSettings } from "../content";
 import styles from "./Footer.module.css";
 
 /**
@@ -8,6 +8,7 @@ import styles from "./Footer.module.css";
  * `compactOnPhones`: on phones only the legal links remain (the contact details are at the top, see Layout).
  */
 export default function Footer({ compactOnPhones = false }: { compactOnPhones?: boolean }) {
+  const siteSettings = useSiteSettings();
   const f = siteSettings.footer ?? {};
   const handle = f.instagram?.replace(/^@/, "");
 

@@ -1,4 +1,4 @@
-import { about } from "../content";
+import { useAbout } from "../content";
 import Slideshow from "../components/Slideshow";
 import { paragraphs } from "../lib/text";
 import styles from "./AboutPage.module.css";
@@ -10,6 +10,7 @@ import styles from "./AboutPage.module.css";
  * Phones: wide photo on top, then the text centred, with the two names side by side.
  */
 export default function AboutPage() {
+  const about = useAbout();
   return (
     <article className={styles.about}>
       <h1 className="visually-hidden">sobre rupit</h1>

@@ -1,4 +1,4 @@
-import { services } from "../content";
+import { services as bundledServices, type Services } from "../content";
 import { slugify } from "./text";
 
 /**
@@ -8,7 +8,7 @@ import { slugify } from "./text";
  *   mobileSource → phones: the category or sub-option whose text and photos are shown.
  *   view         → phones: "list" (/servicios: beige page listing every category and option) or "detail".
  */
-export function resolveService(categorySlug?: string, subSlug?: string) {
+export function resolveService(categorySlug?: string, subSlug?: string, services: Services = bundledServices) {
   const categories = services.categories ?? [];
   const category = categorySlug ? categories.find((c) => slugify(c.title) === categorySlug) : undefined;
   const subs = category?.subcategories ?? [];

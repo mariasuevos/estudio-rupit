@@ -1,5 +1,5 @@
 import { Link, useParams } from "react-router";
-import { services } from "../content";
+import { useServices } from "../content";
 import { slugify, paragraphs } from "../lib/text";
 import { resolveService } from "../lib/services";
 import PhotoList from "../components/PhotoList";
@@ -20,9 +20,11 @@ import styles from "./ServicesPage.module.css";
  */
 export default function ServicesPage() {
   const params = useParams();
+  const services = useServices();
   const { categories, category, subs, sub, selected, mobileSource, notFound, view } = resolveService(
     params.category,
     params.sub,
+    services,
   );
 
   const catPath = (title: string) => `/servicios/${slugify(title)}`;

@@ -1,9 +1,11 @@
-import { home, siteSettings } from "../content";
+import { useHome, useSiteSettings } from "../content";
 import LogoNav from "../components/LogoNav";
 import { useFitScreen } from "../lib/useFitScreen";
 import styles from "./Home.module.css";
 
 export default function Home() {
+  const home = useHome();
+  const siteSettings = useSiteSettings();
   useFitScreen("home"); // exact screen height, no scrolling
   return (
     <main className={styles.hero}>

@@ -2,7 +2,21 @@
  * Content is stored as JSON in /content and edited by admins through TinaCMS (/admin).
  * It is bundled at build time, so the site stays fully static.
  * content/pages/*.json: one page per file; the file name is the URL (/aviso-legal …).
+ *
+ * Pages read their content through the use…() hooks below. On the public site they return the bundled
+ * JSON; inside the /admin visual editor, Tina replaces it live with what is being typed (useTina).
  */
+import { createContext, createElement, useContext, useMemo, type ReactNode } from "react";
+import { useTina } from "tinacms/dist/react";
+import {
+  AboutDocument,
+  ContactDocument,
+  HomeDocument,
+  PageDocument,
+  ProjectsDocument,
+  ServicesDocument,
+  SettingsDocument,
+} from "../tina/__generated__/types";
 import siteData from "../content/site.json";
 import homeData from "../content/home.json";
 import aboutData from "../content/sobre-rupit.json";
@@ -42,29 +56,23 @@ export type SiteSettings = {
 };
 export type Page = { title: string; subtitle?: string; body?: string; image?: string; imageAlt?: string };
 
-export const siteSettings: SiteSettings = withBase(siteData);
-export const home: { heroImage?: string; heroAlt?: string; heroHoverImage?: string; heroHoverAlt?: string } =
-  withBase(homeData);
-
-export const about: {
+export type Home = { heroImage?: string; heroAlt?: string; heroHoverImage?: string; heroHoverAlt?: string };
+export type About = {
   heading?: string;
   intro?: string;
   closing?: string;
   nameLeft?: string;
   nameRight?: string;
   gallery?: Photo[];
-} = withBase(aboutData);
-
-export const services: {
+};
+export type Services = {
   intro?: string;
   video?: string; // general page (/servicios, nothing selected); replaces `items` when set
   items?: PhotoItem[]; // general page (/servicios, nothing selected)
   categories?: (ServiceOption & { subcategories?: ServiceOption[] })[];
-} = withBase(servicesData);
-
-export const projects: { intro?: string; projects?: { title?: string; description?: string; photos?: Photo[] }[] } = withBase(projectsData);
-
-export const contact: {
+};
+export type Projects = { intro?: string; projects?: { title?: string; description?: string; photos?: Photo[] }[] };
+export type Contact = {
   text?: string;
   submitLabel?: string;
   successMessage?: string;
@@ -72,9 +80,37 @@ export const contact: {
   captchaMessage?: string;
   errorMessage?: string;
   fields?: Record<string, { label?: string; hint?: string; placeholder?: string } | undefined>;
-} = withBase(contactData);
+};
 
-const files = import.meta.glob<Page>("../content/pages/*.json", { eager: true, import: "default" });
-export const pages: Record<string, Page> = Object.fromEntries(
-  Object.entries(files).map(([path, page]) => [path.split("/").pop()!.replace(/\.json$/, ""), withBase(page)]),
+/** Bundled content, for code outside React components (the live versions are the hooks below). */
+export const services: Services = withBase(servicesData);
+
+const pageFiles = import.meta.glob("../content/pages/*.json", { eager: true, import: "default" });
+const rawPages: Record<string, unknown> = Object.fromEntries(
+  Object.entries(pageFiles).map(([path, page]) => [path.split("/").pop()!.replace(/\.json$/, ""), page]),
 );
+
+/**
+ * Content of one Tina document: the bundled JSON, or the live edits while in the /admin visual editor.
+ * `key` is the GraphQL field the query returns (= the collection name in tina/config.ts).
+ */
+function useLive<T>(key: string, query: string, relativePath: string, bundled: unknown): T {
+  const { data } = useTina<Record<string, unknown>>({ query, variables: { relativePath }, data: { [key]: bundled } });
+  return useMemo(() => withBase((data[key] ?? undefined) as T), [data, key]);
+}
+
+export const useHome = () => useLive<Home>("home", HomeDocument, "home.json", homeData);
+export const useAbout = () => useLive<About>("about", AboutDocument, "sobre-rupit.json", aboutData);
+export const useServices = () => useLive<Services>("services", ServicesDocument, "servicios.json", servicesData);
+export const useProjects = () => useLive<Projects>("projects", ProjectsDocument, "proyectos.json", projectsData);
+export const useContact = () => useLive<Contact>("contact", ContactDocument, "contacto.json", contactData);
+/** A page from content/pages (undefined if there is no file with that name). */
+export const usePage = (slug: string) => useLive<Page | undefined>("page", PageDocument, `${slug}.json`, rawPages[slug]);
+
+/** Site settings are used by many components at once, so they are read once (in the provider) and shared. */
+const SettingsContext = createContext<SiteSettings>(withBase(siteData));
+export function SiteSettingsProvider({ children }: { children: ReactNode }) {
+  const settings = useLive<SiteSettings>("settings", SettingsDocument, "site.json", siteData);
+  return createElement(SettingsContext.Provider, { value: settings }, children);
+}
+export const useSiteSettings = () => useContext(SettingsContext);

@@ -1,12 +1,12 @@
 import { useParams } from "react-router";
-import { pages } from "../content";
+import { usePage } from "../content";
 import { paragraphs } from "../lib/text";
 import styles from "./ContentPage.module.css";
 
 /** Generic page for every file in content/pages (route = file name). */
 export default function ContentPage() {
   const { slug = "" } = useParams();
-  const page = pages[slug];
+  const page = usePage(slug);
 
   if (!page) {
     return (

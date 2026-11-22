@@ -1,5 +1,5 @@
 import { Link, useLocation } from "react-router";
-import { asset, siteSettings } from "../content";
+import { asset, useSiteSettings } from "../content";
 import moon from "../assets/brand/moon.png";
 import moonVertical from "../assets/brand/moon-vertical.png";
 import styles from "./LogoNav.module.css";
@@ -44,6 +44,7 @@ const pct = (b: Box, frame: { w: number; h: number }) => ({
 
 export default function LogoNav({ variant }: { variant: Variant }) {
   const { pathname } = useLocation();
+  const siteSettings = useSiteSettings();
   const nav = (siteSettings.nav ?? []).slice(0, MARKS.length);
   const frame = variant === "hero" ? { w: SYMBOL.w, h: SYMBOL.h } : { w: SYMBOL.h, h: SYMBOL.w };
   const moonMask = `url(${variant === "hero" ? moon : moonVertical})`;

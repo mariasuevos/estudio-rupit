@@ -1,5 +1,5 @@
 import { useRef, useState, type FormEvent } from "react";
-import { contact } from "../content";
+import { useContact, type Contact } from "../content";
 import { paragraphs } from "../lib/text";
 import { sendContactEmail, type ContactMessage } from "../lib/email";
 import Recaptcha, { RECAPTCHA_SITE_KEY } from "../components/Recaptcha";
@@ -54,15 +54,16 @@ function saveSent(keys: string[]) {
   }
 }
 
-const MESSAGES: Partial<Record<Status, string>> = {
+const messages = (contact: Contact): Partial<Record<Status, string>> => ({
   sent: contact.successMessage || "¡Gracias! Os responderemos muy pronto.",
   duplicate: contact.duplicateMessage || "Ya hemos recibido esta misma solicitud. Os responderemos muy pronto.",
   captcha: contact.captchaMessage || "Marca la casilla «No soy un robot» para enviar.",
   error: contact.errorMessage || "No se ha podido enviar. Inténtalo de nuevo o escríbenos directamente por e-mail.",
-};
+});
 
 /** "contacto": form on the right (sent by e-mail via EmailJS), text below on the left. */
 export default function ContactPage() {
+  const contact = useContact();
   const [status, setStatus] = useState<Status>("idle");
   const sending = useRef(false); // blocks fast repeated clicks before React re-renders
   const sent = useRef(readSent());
@@ -171,7 +172,7 @@ export default function ContactPage() {
         </button>
 
         <p className={`t-lead ${styles.status}`} role="status" aria-live="polite">
-          {MESSAGES[status]}
+          {messages(contact)[status]}
         </p>
       </form>
 

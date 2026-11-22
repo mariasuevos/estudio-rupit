@@ -36,6 +36,8 @@ export default defineConfig({
   clientId: process.env.TINA_CLIENT_ID || null,
   token: process.env.TINA_TOKEN || null,
 
+  // Collections with a `router` open in the visual editor: the page on the right, updating live as you type
+  // (the site reads its content through useTina, see src/content.ts). Routes are relative to build.basePath.
   build: {
     outputFolder: "admin", // admin UI served at /admin
     basePath: (process.env.BASE_PATH || "").replace(/^\/|\/$/g, ""), // "estudio-rupit" on GitHub Pages
@@ -139,7 +141,7 @@ export default defineConfig({
         path: "content",
         format: "json",
         match: { include: "sobre-rupit" },
-        ui: { allowedActions: { create: false, delete: false } },
+        ui: { allowedActions: { create: false, delete: false }, router: () => "sobre-rupit" },
         fields: [
           { type: "string", name: "heading", label: "Titular (cursiva, en mayúsculas)", ui: { component: "textarea" } },
           {
@@ -172,7 +174,7 @@ export default defineConfig({
         path: "content",
         format: "json",
         match: { include: "servicios" },
-        ui: { allowedActions: { create: false, delete: false } },
+        ui: { allowedActions: { create: false, delete: false }, router: () => "servicios" },
         fields: [
           {
             type: "string",
@@ -226,7 +228,7 @@ export default defineConfig({
         path: "content",
         format: "json",
         match: { include: "proyectos" },
-        ui: { allowedActions: { create: false, delete: false } },
+        ui: { allowedActions: { create: false, delete: false }, router: () => "proyectos" },
         fields: [
           {
             type: "string",
@@ -269,7 +271,7 @@ export default defineConfig({
         path: "content",
         format: "json",
         match: { include: "contacto" },
-        ui: { allowedActions: { create: false, delete: false } },
+        ui: { allowedActions: { create: false, delete: false }, router: () => "contacto" },
         fields: [
           {
             type: "string",
@@ -313,7 +315,10 @@ export default defineConfig({
         label: "Páginas",
         path: "content/pages",
         format: "json",
-        // The file name is the page URL: content/pages/aviso-legal.json → /aviso-legal
+        ui: {
+          // The file name is the page URL: content/pages/aviso-legal.json → /aviso-legal
+          router: ({ document }) => document._sys.filename,
+        },
         fields: [
           { type: "string", name: "title", label: "Título (nombre)", isTitle: true, required: true },
           { type: "string", name: "subtitle", label: "Subtítulo (cursiva)" },

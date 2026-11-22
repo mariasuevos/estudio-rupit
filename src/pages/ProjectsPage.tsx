@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useSearchParams } from "react-router";
-import { projects } from "../content";
+import { useProjects } from "../content";
 import PageIntro from "../components/PageIntro";
 import Carousel from "../components/Carousel";
 import Lightbox from "../components/Lightbox";
@@ -14,6 +14,7 @@ import styles from "./ProjectsPage.module.css";
  * (./projectLayouts: "opción 1", "opción 2"…), switched with ?opcion= and the button at the top.
  */
 export default function ProjectsPage() {
+  const projects = useProjects();
   const list = projects.projects ?? [];
   const [open, setOpen] = useState<{ project: number; photo: number } | null>(null);
   const [params] = useSearchParams();
