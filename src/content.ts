@@ -95,7 +95,11 @@ const rawPages: Record<string, unknown> = Object.fromEntries(
  * `key` is the GraphQL field the query returns (= the collection name in tina/config.ts).
  */
 function useLive<T>(key: string, query: string, relativePath: string, bundled: unknown): T {
-  const { data } = useTina<Record<string, unknown>>({ query, variables: { relativePath }, data: { [key]: bundled } });
+  // Both objects must keep their identity between renders: useTina resets its data whenever `data`
+  // changes, which would overwrite the live edits with the bundled JSON (and re-render forever).
+  const variables = useMemo(() => ({ relativePath }), [relativePath]);
+  const initial = useMemo(() => ({ [key]: bundled }), [key, bundled]);
+  const { data } = useTina<Record<string, unknown>>({ query, variables, data: initial });
   return useMemo(() => withBase((data[key] ?? undefined) as T), [data, key]);
 }
 
