@@ -139,7 +139,7 @@ export default defineConfig({
         path: "content",
         format: "json",
         match: { include: "sobre-rupit" },
-        ui: { allowedActions: { create: false, delete: false }, router: () => "/sobre-rupit" },
+        ui: { allowedActions: { create: false, delete: false } },
         fields: [
           { type: "string", name: "heading", label: "Titular (cursiva, en mayúsculas)", ui: { component: "textarea" } },
           {
@@ -172,7 +172,7 @@ export default defineConfig({
         path: "content",
         format: "json",
         match: { include: "servicios" },
-        ui: { allowedActions: { create: false, delete: false }, router: () => "/servicios" },
+        ui: { allowedActions: { create: false, delete: false } },
         fields: [
           {
             type: "string",
@@ -226,7 +226,7 @@ export default defineConfig({
         path: "content",
         format: "json",
         match: { include: "proyectos" },
-        ui: { allowedActions: { create: false, delete: false }, router: () => "/proyectos" },
+        ui: { allowedActions: { create: false, delete: false } },
         fields: [
           {
             type: "string",
@@ -269,7 +269,7 @@ export default defineConfig({
         path: "content",
         format: "json",
         match: { include: "contacto" },
-        ui: { allowedActions: { create: false, delete: false }, router: () => "/contacto" },
+        ui: { allowedActions: { create: false, delete: false } },
         fields: [
           {
             type: "string",
@@ -313,10 +313,7 @@ export default defineConfig({
         label: "Páginas",
         path: "content/pages",
         format: "json",
-        ui: {
-          // The file name is the page URL: content/pages/servicios.json → /servicios
-          router: ({ document }) => `/${document._sys.filename}`,
-        },
+        // The file name is the page URL: content/pages/aviso-legal.json → /aviso-legal
         fields: [
           { type: "string", name: "title", label: "Título (nombre)", isTitle: true, required: true },
           { type: "string", name: "subtitle", label: "Subtítulo (cursiva)" },
