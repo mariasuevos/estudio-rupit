@@ -34,3 +34,17 @@
 .hero:has(nav li a:is(:hover, :focus-visible)) .hoverImage {
   opacity: 1;
 }
+
+/* ---- Phones: only the moon and dots, centred and wide ---- */
+@media (max-width: 47.99rem) {
+  .logo {
+    left: 50%;
+    top: var(--hero-logo-top-mobile);
+    translate: -50% -50%;
+  }
+}
+
+/* Phones and touch screens (no mouse to hover with): the second photo stays fixed */
+@media (max-width: 47.99rem), (hover: none) {
+  .hoverImage { opacity: 1; }
+}

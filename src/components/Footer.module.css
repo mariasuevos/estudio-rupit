@@ -40,3 +40,15 @@
 .legal a { color: inherit; text-decoration: none; }
 .legal a:hover { text-decoration: underline; }
 
+
+/* ---- Phones ---- */
+@media (max-width: 47.99rem) {
+  .footer { padding-top: var(--space-9); }
+  .legal { font-size: var(--text-mobile-legal); letter-spacing: 0.06em; }
+
+  /* Compact: only the legal links, centred */
+  .compact { align-items: center; padding-left: var(--space-4); padding-right: var(--space-4); }
+  .compact .wordmarkLink,
+  .compact .contact { display: none; }
+  .compact .legal { margin-top: 0; text-align: center; }
+}

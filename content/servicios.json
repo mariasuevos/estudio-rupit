@@ -113,6 +113,7 @@
     },
     {
       "title": "Escenografía",
+      "description": "La escenografía o “set design” implica la creación de una atmósfera coherente y cuidada a través de la combinación de diversos elementos (mobiliario, iluminación, flores, textiles, etc.)",
       "items": [
         {
           "image": "/uploads/servicios/mar-de-luna-3-18.jpg",
@@ -223,6 +224,7 @@
     },
     {
       "title": "Dirección de arte",
+      "description": "La guía de todo proyecto creativo.\n\nLa dirección artística permite diseñar propuestas coherentes tanto narrativa como visualmente, donde todos los elementos están relacionados entre sí con el fin de compartir un mensaje o historia.",
       "items": [
         {
           "image": "/uploads/servicios/mar-de-luna-3-22.jpg",

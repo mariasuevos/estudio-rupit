@@ -22,6 +22,15 @@ const photoListField = {
   ],
 };
 
+/** Text shown above a service option's photos on phones. */
+const serviceDescriptionField = {
+  type: "string" as const,
+  name: "description",
+  label: "Texto (se ve en móvil, encima de las fotos)",
+  description: "En mayúsculas y cursiva. Separa los párrafos con una línea en blanco.",
+  ui: { component: "textarea" as const },
+};
+
 export default defineConfig({
   branch,
   clientId: process.env.TINA_CLIENT_ID || null,
@@ -71,6 +80,12 @@ export default defineConfig({
             fields: [
               { type: "string", name: "instagram", label: "Instagram", description: "Usuario, p. ej. @estudio.rupit" },
               { type: "string", name: "email", label: "Email" },
+              {
+                type: "string",
+                name: "homeLabel",
+                label: "Texto del enlace a inicio (móvil, arriba a la derecha)",
+                description: "P. ej. Inicio",
+              },
               {
                 type: "string",
                 name: "tagline",
@@ -187,6 +202,7 @@ export default defineConfig({
             ui: { itemProps: (item) => ({ label: item?.title }) },
             fields: [
               { type: "string", name: "title", label: "Nombre", required: true },
+              serviceDescriptionField,
               photoListField,
               {
                 type: "object",
@@ -196,6 +212,7 @@ export default defineConfig({
                 ui: { itemProps: (item) => ({ label: item?.title }) },
                 fields: [
                   { type: "string", name: "title", label: "Nombre", required: true },
+                  serviceDescriptionField,
                   photoListField,
                 ],
               },
@@ -225,6 +242,12 @@ export default defineConfig({
             ui: { itemProps: (item) => ({ label: item?.title }) },
             fields: [
               { type: "string", name: "title", label: "Nombre (pie del carrusel)" },
+              {
+                type: "string",
+                name: "description",
+                label: "Descripción (se ve en móvil, bajo el nombre)",
+                ui: { component: "textarea" },
+              },
               {
                 type: "object",
                 name: "photos",

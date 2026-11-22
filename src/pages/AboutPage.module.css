@@ -46,12 +46,61 @@
 
 .photo { aspect-ratio: 1; }
 
-/* ---- Phones / small tablets: photo first, then the text ---- */
+/* ---- Phones: photo edge to edge on top; below, centred text with the names in two columns ---- */
 @media (max-width: 47.99rem) {
   .about {
-    grid-template-columns: 1fr;
-    row-gap: var(--space-6);
-    padding: var(--page-top) var(--content-right) 0 var(--content-left);
+    display: flex;
+    flex-direction: column;
+    padding: var(--mobile-content-top) 0 0;
   }
-  .photo { order: -1; }
+  .photo {
+    order: -1;
+    aspect-ratio: 5 / 3;
+  }
+
+  /*
+   *  heading (full width)
+   *  name left  | name right
+   *  1st para   | 2nd para
+   *  other paragraphs and the closing line (full width)
+   */
+  .text {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: var(--space-5);
+    row-gap: var(--space-5);
+    justify-content: normal;
+    padding: var(--space-4) var(--content-right) 0 var(--page-left);
+    text-align: center;
+    font-size: var(--text-mobile-body);
+  }
+  .intro,
+  .bottom,
+  .names { display: contents; }
+  .text p,
+  .text h2 { grid-column: 1 / -1; margin: 0; }
+  .about .intro > * + * { margin-top: 0; }
+
+  .heading {
+    grid-row: 1;
+    font-size: var(--text-mobile-legal);
+    letter-spacing: 0.04em;
+    margin-bottom: var(--space-6);
+  }
+  .text .nameLeft { grid-row: 2; grid-column: 1; }
+  .text .nameRight { grid-row: 2; grid-column: 2; }
+  .text .underLeft { grid-row: 3; grid-column: 1; }
+  .text .underRight { grid-row: 3; grid-column: 2; }
+
+  .intro p { font-size: var(--text-mobile-body); line-height: 1.15; }
+  .name {
+    font-size: var(--text-about-name-mobile);
+    line-height: 1.1;
+    padding: 0 var(--space-4);
+  }
+  .closing {
+    font-weight: var(--weight-semibold);
+    font-size: var(--text-mobile-body);
+    margin-top: var(--space-4);
+  }
 }

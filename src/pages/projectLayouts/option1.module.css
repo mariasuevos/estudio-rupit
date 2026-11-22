@@ -1,0 +1,10 @@
+/* Opción 1 — one project per screen: tall photos, lots of space between projects */
+@media (max-width: 47.99rem) {
+  .layout {
+    --projects-carousel-height: 56svh;
+    --projects-photo-gap: var(--carousel-gap);
+    --projects-gap: var(--space-9);
+    --projects-title-gap: var(--space-6);
+    --projects-title-weight: var(--weight-semibold);
+  }
+}

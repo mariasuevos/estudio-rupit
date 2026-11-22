@@ -1,4 +1,6 @@
-import { Outlet, useLocation } from "react-router";
+import { Link, Outlet, useLocation } from "react-router";
+import { siteSettings } from "../content";
+import { serviceViewFromPath } from "../lib/services";
 import LogoNav from "./LogoNav";
 import Footer from "./Footer";
 import styles from "./Layout.module.css";
@@ -6,20 +8,44 @@ import styles from "./Layout.module.css";
 /** Pages whose whole background (footer included) is beige instead of white. */
 const BEIGE_PAGES = ["/contacto"];
 
-/** Layout for inner pages: vertical menu + page + footer (the home page has none of them). */
+/**
+ * Layout for inner pages: vertical menu + page + footer (the home page has none of them).
+ * Phones: the contact details move from the footer to the top-right (with a link home),
+ * except on beige pages (contacto), which keep the full footer. The services list is beige on phones.
+ */
 export default function Layout() {
   const { pathname } = useLocation();
-  const beige = BEIGE_PAGES.includes(pathname.replace(/\/$/, ""));
+  const path = pathname.replace(/\/$/, "");
+  const beige = BEIGE_PAGES.includes(path);
+  const beigeOnPhones = serviceViewFromPath(path) === "list";
+  const f = siteSettings.footer ?? {};
+  const handle = f.instagram?.replace(/^@/, "");
 
   return (
-    <div className={beige ? styles.beige : undefined}>
+    <div className={beige ? styles.beige : beigeOnPhones ? styles.beigeMobile : undefined}>
       <header className={styles.menu}>
         <LogoNav variant="vertical" />
       </header>
+
+      {!beige && (
+        <div className={`${styles.mobileInfo} t-contact`}>
+          <Link to="/" className={`t-name ${styles.home}`}>
+            {f.homeLabel || "Inicio"}
+          </Link>
+          {handle && (
+            <a href={`https://www.instagram.com/${handle}/`} target="_blank" rel="noreferrer">
+              @{handle}
+            </a>
+          )}
+          {f.email && <a href={`mailto:${f.email}`}>{f.email}</a>}
+          {f.tagline && <p className={styles.tagline}>{f.tagline}</p>}
+        </div>
+      )}
+
       <main className={styles.main}>
         <Outlet />
       </main>
-      <Footer />
+      <Footer compactOnPhones={!beige} />
     </div>
   );
 }

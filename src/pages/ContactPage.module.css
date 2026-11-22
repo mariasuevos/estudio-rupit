@@ -107,8 +107,15 @@
 }
 .text p + p { margin-top: 1.05em; }
 
-/* ---- Phones ---- */
+/* ---- Phones: the form centred and large, the text below on the left ---- */
 @media (max-width: 47.99rem) {
-  .form { margin: calc(var(--nav-vertical-width) * 13.43 + var(--space-5)) var(--content-right) 0 var(--content-left); }
-  .text { margin-left: var(--content-left); margin-right: var(--content-right); width: auto; }
+  .form { margin: var(--mobile-content-top) var(--contact-form-side-mobile) 0; }
+  .input { font-size: 1rem; } /* 16px or more: iPhone does not zoom in when typing */
+  .label { font-size: var(--text-mobile-home); }
+  .captcha { align-self: center; }
+  .text {
+    margin: var(--space-9) var(--content-right) 0 var(--page-left);
+    width: auto;
+    font-size: var(--text-mobile-body);
+  }
 }

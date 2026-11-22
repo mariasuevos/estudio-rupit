@@ -88,3 +88,14 @@
 /* Hover/focus: that mark is solid and shows its name; everything else fades (or hides on home) */
 .nav:has(.link:hover, .link:focus-visible) :is(.moon, .dot, .wordmark) { opacity: var(--fade); }
 .nav .link:is(:hover, :focus-visible) :is(.moon, .dot, .label) { opacity: 1; }
+
+/* ---- Phones (home): no wordmark, wider symbol ---- */
+@media (max-width: 47.99rem) {
+  .hero .wordmark { display: none; }
+  .hero .symbol { width: var(--hero-symbol-width-mobile); }
+}
+
+/* Phones (inner pages): all four marks solid, as in the mobile design (the faded moon was easy to miss) */
+@media (max-width: 47.99rem) {
+  .vertical:has(.link[aria-current="page"]) :is(.moon, .dot) { opacity: 1; }
+}

@@ -32,13 +32,13 @@ export const asset = (path: string) => import.meta.env.BASE_URL + path.replace(/
 export type NavItem = { label: string; href: string };
 export type Photo = { image: string; alt?: string };
 export type PhotoItem = Partial<Photo> & { caption?: string };
-export type ServiceOption = { title: string; items?: PhotoItem[] };
+export type ServiceOption = { title: string; description?: string; items?: PhotoItem[] };
 
 export type SiteSettings = {
   title: string;
   description?: string;
   nav?: NavItem[];
-  footer?: { instagram?: string; email?: string; tagline?: string; legalLinks?: NavItem[] };
+  footer?: { instagram?: string; email?: string; tagline?: string; legalLinks?: NavItem[]; homeLabel?: string };
 };
 export type Page = { title: string; subtitle?: string; body?: string; image?: string; imageAlt?: string };
 
@@ -62,7 +62,7 @@ export const services: {
   categories?: (ServiceOption & { subcategories?: ServiceOption[] })[];
 } = withBase(servicesData);
 
-export const projects: { intro?: string; projects?: { title?: string; photos?: Photo[] }[] } = withBase(projectsData);
+export const projects: { intro?: string; projects?: { title?: string; description?: string; photos?: Photo[] }[] } = withBase(projectsData);
 
 export const contact: {
   text?: string;

@@ -22,3 +22,8 @@
 @media (min-width: 60rem) {
   .media { margin-top: var(--space-8); }
 }
+
+/* Phones: below the menu and the contact details at the top-right */
+@media (max-width: 47.99rem) {
+  .page { padding-top: var(--mobile-content-top); }
+}

@@ -52,16 +52,78 @@
   height: auto;
 }
 
-/* ---- Phones: one column ---- */
+/* Phones only */
+.mobileList,
+.mobileOnly,
+.description { display: none; }
+
+/* ---- Phones ---- */
 @media (max-width: 47.99rem) {
-  .categories,
-  .subcategories,
-  .photos { margin-top: 0; }
-  .categories { padding-top: calc(var(--nav-vertical-width) * 13.43 + var(--space-5)); }
+  .page { padding-top: var(--mobile-content-top); }
+
+  /* List pages: only the list of every category and option (beige, see Layout) */
+  .listView .grid { display: none; }
+  .listView .mobileList { display: block; }
+
+  /* Detail pages: only the chosen option's text and photos, photos edge to edge */
+  .detailView .categories,
+  .detailView .subcategories { display: none; }
   .grid {
-    grid-template-columns: minmax(0, 1fr);
-    gap: var(--space-6);
-    padding: 0 var(--content-right) 0 var(--content-left);
+    display: block;
+    padding: 0;
   }
-  .subcategories:empty { display: none; }
+  .photos { margin-top: 0; }
+  .mobileOnly { display: block; }
+  .desktopOnly,
+  .video { display: none; }
+  .photos :global(figcaption) { display: none; }
+  .description {
+    display: block;
+    margin: 0 var(--content-right) var(--space-6) var(--page-left);
+    font-family: var(--font-accent);
+    font-style: italic;
+    font-weight: var(--weight-light);
+    font-size: var(--text-mobile-small);
+    line-height: 1.15;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+  }
+  .description p + p { margin-top: 0.6em; }
+  .photos > :global(.t-lead) { padding: 0 var(--content-right) 0 var(--page-left); }
+
+  /*
+   * Zigzag: odd categories start at the vertical line and are left-aligned,
+   * even ones end at it and are right-aligned (their options too).
+   */
+  .mobileList > ul {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+  }
+  .mobileCategory:nth-child(odd) { padding-left: var(--services-mobile-pivot); }
+  .mobileCategory:nth-child(even) {
+    padding-right: calc(100% - var(--services-mobile-pivot));
+    text-align: right;
+  }
+  .mobileTitle {
+    font-weight: var(--weight-semibold);
+    font-size: var(--text-services-mobile-title);
+    letter-spacing: 0.03em;
+  }
+  .mobileCategory { line-height: 1.2; }
+  .mobileSubs {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+    margin-top: var(--space-3);
+  }
+  .mobileSubs li {
+    font-size: var(--text-services-mobile-option);
+    line-height: 1.15;
+  }
+  .mobileSubs a { font-size: inherit; }
+  .mobileList a {
+    color: var(--color-text);
+    text-decoration: none;
+  }
 }

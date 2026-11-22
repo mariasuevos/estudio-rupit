@@ -17,3 +17,41 @@
   background: var(--color-bg);
   min-height: 100svh;
 }
+
+/* ---- Phones: link home + contact details at the top-right ---- */
+.mobileInfo { display: none; }
+
+@media (max-width: 47.99rem) {
+  .mobileInfo {
+    position: absolute;
+    top: var(--page-top);
+    right: var(--content-right);
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    text-align: right;
+    font-size: var(--text-mobile-small);
+    line-height: 1.1;
+  }
+  .mobileInfo a { color: inherit; text-decoration: none; }
+  .mobileInfo .home {
+    margin-bottom: var(--space-3);
+    font-weight: var(--weight-semibold);
+    font-style: normal;
+    font-size: var(--text-mobile-home);
+    color: var(--color-accent);
+  }
+  .tagline {
+    margin-top: var(--space-3);
+    white-space: pre-line;
+  }
+
+  .beigeMobile {
+    --color-bg: var(--color-accent);
+    background: var(--color-bg);
+    min-height: 100svh;
+  }
+  /* On beige, the beige "INICIO" would disappear: plum instead */
+  .beigeMobile .mobileInfo .home { color: var(--color-text); }
+}

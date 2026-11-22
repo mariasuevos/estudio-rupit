@@ -3,13 +3,16 @@ import { Link } from "react-router";
 import { asset, siteSettings } from "../content";
 import styles from "./Footer.module.css";
 
-/** Footer for every page except the home page: vertical wordmark, contact and legal links, stacked on the left. */
-export default function Footer() {
+/**
+ * Footer for every page except the home page: vertical wordmark, contact and legal links, stacked on the left.
+ * `compactOnPhones`: on phones only the legal links remain (the contact details are at the top, see Layout).
+ */
+export default function Footer({ compactOnPhones = false }: { compactOnPhones?: boolean }) {
   const f = siteSettings.footer ?? {};
   const handle = f.instagram?.replace(/^@/, "");
 
   return (
-    <footer className={styles.footer}>
+    <footer className={`${styles.footer} ${compactOnPhones ? styles.compact : ""}`}>
       <Link to="/" className={styles.wordmarkLink} aria-label={`${siteSettings.title} — inicio`}>
         <img
           className={styles.wordmark}

@@ -154,9 +154,22 @@
 /* Phones: tighter page edges; content starts just right of the vertical menu */
 @media (max-width: 47.99rem) {
   :root {
-    --page-left: 1rem;
+    /* Content starts below the vertical menu (menu height = dot size × 3518/262) */
+    --mobile-content-top: calc(var(--page-top) + var(--nav-vertical-width) * 13.43 + var(--space-6));
+    --text-mobile-small: 0.6875rem;          /* header contact, uppercase italic texts */
+    --text-mobile-body: 0.75rem;             /* italic paragraphs */
+    --text-mobile-home: 0.875rem;            /* "INICIO", top-right */
+    --text-mobile-legal: 0.5rem;             /* footer legal links (one line) */
+    --hero-symbol-width-mobile: 74vw;        /* home: moon + 3 dots */
+    --hero-logo-top-mobile: 41%;
+    --text-about-name-mobile: 1.375rem;      /* MAR DE LUNA / JIMENA SIERRA */
+    --services-mobile-pivot: 52%;
+    --contact-form-side-mobile: 8vw;         /* contacto: space at each side of the form */            /* vertical line the categories zigzag around */
+    --text-services-mobile-title: 0.8125rem;
+    --text-services-mobile-option: 0.8125rem;
+    --page-left: 1.5rem;
     --content-left: calc(var(--page-left) + var(--nav-vertical-width) + 1.25rem);
-    --content-right: 1rem;
-    --footer-left: 1rem;
+    --content-right: 1.5rem;
+    --footer-left: 1.5rem;
   }
 }
