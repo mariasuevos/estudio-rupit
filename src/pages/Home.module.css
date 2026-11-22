@@ -5,8 +5,7 @@
  */
 .hero {
   position: fixed; /* the home page never scrolls */
-  inset: 0;
-  height: var(--app-height, 100svh);
+  inset: 0; /* whole screen, also behind the phone's bottom bar (viewport-fit=cover in index.html) */
   overflow: hidden;
   background: var(--color-inverse-bg);
 }
@@ -49,9 +48,14 @@
   .hoverImage { opacity: 1; }
 }
 
-/* The home page is exactly one screen: no scrolling and no "bounce" when dragging (iPhone) */
+/*
+ * The home page is exactly one screen: no scrolling and no "bounce" when dragging.
+ * Dark background: if a browser doesn't let the page draw behind its bottom bar, it paints
+ * that bar with this colour (instead of white).
+ */
 :global(html):has(.hero),
 :global(body):has(.hero) {
   overflow: hidden;
   overscroll-behavior: none;
+  background: var(--color-inverse-bg);
 }

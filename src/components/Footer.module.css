@@ -4,7 +4,8 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  padding: var(--footer-top) var(--content-right) var(--footer-bottom) var(--footer-left);
+  /* + the phone's bottom bar (the page is drawn behind it: viewport-fit=cover in index.html) */
+  padding: var(--footer-top) var(--content-right) calc(var(--footer-bottom) + env(safe-area-inset-bottom)) var(--footer-left);
 }
 
 /* The vertical "estudio rupit" links to the home page */
@@ -49,7 +50,7 @@
   /* Compact: only the legal links, centred */
   .compact {
     align-items: center;
-    padding: var(--mobile-gap-l) var(--space-4) var(--mobile-gap-m);
+    padding: var(--mobile-gap-l) var(--space-4) calc(var(--mobile-gap-m) + env(safe-area-inset-bottom));
   }
   .compact .wordmarkLink,
   .compact .contact { display: none; }
