@@ -1,6 +1,7 @@
 import { Link, Outlet, useLocation } from "react-router";
 import { siteSettings } from "../content";
 import { serviceViewFromPath } from "../lib/services";
+import { useFitScreen } from "../lib/useFitScreen";
 import LogoNav from "./LogoNav";
 import Footer from "./Footer";
 import styles from "./Layout.module.css";
@@ -20,6 +21,7 @@ export default function Layout() {
   const beigeOnPhones = serviceViewFromPath(path) === "list";
   const f = siteSettings.footer ?? {};
   const handle = f.instagram?.replace(/^@/, "");
+  useFitScreen(pathname);
 
   return (
     <div className={`${styles.layout} ${beige ? styles.beige : beigeOnPhones ? styles.beigeMobile : ""}`}>

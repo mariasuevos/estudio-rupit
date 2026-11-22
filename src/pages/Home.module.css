@@ -6,7 +6,7 @@
 .hero {
   position: fixed; /* the home page never scrolls */
   inset: 0;
-  height: 100svh;
+  height: var(--app-height, 100svh);
   overflow: hidden;
   background: var(--color-inverse-bg);
 }

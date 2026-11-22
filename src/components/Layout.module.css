@@ -2,7 +2,7 @@
 .layout {
   display: flex;
   flex-direction: column;
-  min-height: 100svh;
+  min-height: var(--app-height, 100svh); /* --app-height: visible height, measured (lib/useFitScreen) */
 }
 .layout > .main { flex: 1; }
 
@@ -23,8 +23,10 @@
 .beige {
   --color-bg: var(--color-accent);
   background: var(--color-bg);
-  min-height: 100svh;
 }
+/* The whole window beige too (Android Chrome paints the area under the navigation bar with it) */
+:global(html):has(.beige),
+:global(body):has(.beige) { background: var(--color-accent); }
 
 /* ---- Phones: link home + contact details at the top-right ---- */
 .mobileInfo { display: none; }
@@ -58,8 +60,9 @@
   .beigeMobile {
     --color-bg: var(--color-accent);
     background: var(--color-bg);
-    min-height: 100svh;
   }
+  :global(html):has(.beigeMobile),
+  :global(body):has(.beigeMobile) { background: var(--color-accent); }
   /* On beige, the beige "INICIO" would disappear: plum instead */
   .beigeMobile .mobileInfo .home { color: var(--color-text); }
 }

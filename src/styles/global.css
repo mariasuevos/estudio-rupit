@@ -3,11 +3,15 @@
 @import "./tokens.css";
 @import "./typography.css";
 
-/* Phones: no "bounce" when dragging past the top or bottom (iPhone Safari), so short pages stay still */
+/* Phones: no "bounce"/stretch when dragging past the top or bottom, so short pages stay still */
 @media (max-width: 47.99rem) {
   html,
   body { overscroll-behavior: none; }
 }
+
+/* A page that fits on one screen does not scroll at all (set by lib/useFitScreen) */
+html.fits-screen,
+html.fits-screen body { overflow: hidden; }
 
 body {
   font-family: var(--font-body);
