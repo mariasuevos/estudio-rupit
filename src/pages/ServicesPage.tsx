@@ -6,7 +6,7 @@ import PhotoList from "../components/PhotoList";
 import styles from "./ServicesPage.module.css";
 
 /*
- * /servicios                         → general page: nothing selected, the general video (or photo list)
+ * /servicios                         → general page: nothing selected, the general video
  * /servicios/:category               → that category's photos; if it has sub-options (Papelería, Escenografía),
  *                                      they unfold but none is selected and the general video stays
  * /servicios/:category/:sub          → a sub-option
@@ -28,10 +28,9 @@ export default function ServicesPage() {
   );
 
   const catPath = (title: string) => `/servicios/${slugify(title)}`;
-  // A sub-option's photos; else the category's (if it has no sub-options); else the general photos
-  const source = selected ?? services;
-  const items = notFound ? [] : (source.items ?? []);
-  const video = !notFound && source === services ? services.video : undefined;
+  // A sub-option's photos, or the category's (if it has no sub-options); with nothing selected, the general video
+  const items = notFound ? [] : (selected?.items ?? []);
+  const video = !notFound && !selected ? services.video : undefined;
 
   return (
     <article className={`${styles.page} ${view === "list" ? styles.listView : styles.detailView}`}>

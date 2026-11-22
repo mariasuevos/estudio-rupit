@@ -1,19 +1,5 @@
 {
   "video": "/uploads/servicios/default-view.mp4",
-  "items": [
-    {
-      "image": "/uploads/servicios/mar-de-luna-3-18.jpg",
-      "caption": "Escenografía"
-    },
-    {
-      "image": "/uploads/servicios/mar-de-luna-3-22.jpg",
-      "caption": "Minutas & marcasitios"
-    },
-    {
-      "image": "/uploads/servicios/mar-de-luna-1-23.jpg",
-      "caption": "Dirección de arte"
-    }
-  ],
   "categories": [
     {
       "title": "Papelería",

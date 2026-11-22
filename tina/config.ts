@@ -186,20 +186,14 @@ export default defineConfig({
             type: "image",
             name: "video",
             label: "Vídeo de la página general",
-            description:
-              "Se ve al entrar en servicios, antes de elegir ninguna categoría (archivo .mp4). Si lo quitas, se muestran las fotos de abajo.",
-          },
-          {
-            ...photoListField,
-            label: "Fotos de la página general (si no hay vídeo)",
-            description: "Se ven al entrar en servicios, antes de elegir ninguna categoría, solo si no hay vídeo.",
+            description: "Se ve al entrar en servicios, antes de elegir ninguna categoría (archivo .mp4).",
           },
           {
             type: "object",
             name: "categories",
             label: "Categorías (menú de la izquierda)",
             description:
-              "Cada categoría tiene su propia lista de fotos. Si tiene opciones desplegables, al pulsarla se despliegan a su derecha y se siguen viendo las fotos de la página general hasta elegir una opción.",
+              "Cada categoría tiene su propia lista de fotos. Si tiene opciones desplegables, al pulsarla se despliegan a su derecha y se sigue viendo el vídeo de la página general hasta elegir una opción.",
             list: true,
             ui: { itemProps: (item) => ({ label: item?.title }) },
             fields: [
@@ -244,12 +238,6 @@ export default defineConfig({
             ui: { itemProps: (item) => ({ label: item?.title }) },
             fields: [
               { type: "string", name: "title", label: "Nombre (pie del carrusel)" },
-              {
-                type: "string",
-                name: "description",
-                label: "Descripción (se ve en móvil, bajo el nombre)",
-                ui: { component: "textarea" },
-              },
               {
                 type: "object",
                 name: "photos",

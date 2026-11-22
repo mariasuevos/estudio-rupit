@@ -12,9 +12,6 @@
   padding-left: var(--page-left);
 }
 
-/* Phones only */
-.description { display: none; }
-
 /* ---- Phones ---- */
 @media (max-width: 47.99rem) {
   .page { padding-top: var(--mobile-content-top); }
@@ -26,23 +23,15 @@
     --carousel-height: var(--projects-carousel-height);
     --carousel-gap: var(--projects-photo-gap);
   }
-  .caption,
-  .description {
+  .caption {
     padding: 0 var(--content-right) 0 var(--page-left);
     font-family: var(--font-accent);
     font-style: italic;
     font-size: var(--text-mobile-body);
     line-height: 1.15;
-  }
-  .caption {
     margin-top: var(--projects-title-gap);
     font-weight: var(--projects-title-weight);
     letter-spacing: 0.04em;
     text-transform: uppercase;
-  }
-  .description {
-    display: block;
-    margin-top: var(--space-2);
-    font-weight: var(--weight-light);
   }
 }

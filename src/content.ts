@@ -67,11 +67,10 @@ export type About = {
 };
 export type Services = {
   intro?: string;
-  video?: string; // general page (/servicios, nothing selected); replaces `items` when set
-  items?: PhotoItem[]; // general page (/servicios, nothing selected)
+  video?: string; // general page (/servicios, nothing selected)
   categories?: (ServiceOption & { subcategories?: ServiceOption[] })[];
 };
-export type Projects = { intro?: string; projects?: { title?: string; description?: string; photos?: Photo[] }[] };
+export type Projects = { intro?: string; projects?: { title?: string; photos?: Photo[] }[] };
 export type Contact = {
   text?: string;
   submitLabel?: string;

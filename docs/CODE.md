@@ -108,8 +108,8 @@ Menu and footer texts for every page come from `content/site.json`.
 | `site.json` | Site title and description, the 4 menu links (moon, dot, dot, dot), footer (Instagram, e-mail, tagline, legal links) |
 | `home.json` | Home hero photo and the photo shown while hovering the menu |
 | `sobre-rupit.json` | Heading, intro text, closing line, the two names, the slideshow photos |
-| `servicios.json` | Intro text, general video (or photos), categories → optional sub-options → photo lists |
-| `proyectos.json` | Intro text and one carousel per project (title, description, photos) |
+| `servicios.json` | Intro text, general video, categories → optional sub-options → photo lists |
+| `proyectos.json` | Intro text and one carousel per project (title, photos) |
 | `contacto.json` | Page text, button text, form messages, and each form field's label / hint / placeholder |
 | `pages/*.json` | Generic pages (legal texts). **The file name is the URL**: `pages/aviso-legal.json` → `/aviso-legal` |
 
