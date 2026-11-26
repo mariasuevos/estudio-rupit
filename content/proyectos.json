@@ -2,7 +2,7 @@
   "intro": "Lorem ipsum es un texto de relleno estándar utilizado en diseño gráfico, editorial y web para previsualizar maquetas (layouts) y tipografías antes de insertar el contenido definitivo. Se comenzó a utilizar en 1966, creado por diseñadores de Letraset y James Mosely, un bibliotecario en Londres, para crear las hojas de transferencia.",
   "projects": [
     {
-      "title": "Proyecto 1",
+      "title": "M&A [julio 2026 - finca privada] · ETÉREO · ÍNTIMO · ATREVIDO save the date · invitaciones · misales · diseño y confección del vestido de la novia · dirección de arte · fotografía propia",
       "photos": [
         {
           "image": "/uploads/proyectos/proyecto-1/mar-de-luna-1-5.jpg",
@@ -19,6 +19,9 @@
         {
           "image": "/uploads/proyectos/proyecto-1/mar-de-luna-1-10.jpg",
           "alt": ""
+        },
+        {
+          "image": "/uploads/mallorca_capilla_0360-Duplicado.jpg"
         }
       ]
     },
